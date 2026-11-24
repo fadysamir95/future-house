@@ -57,7 +57,7 @@ html[dir="rtl"] .scroll-to-top { right: auto; left: 30px; }
 
 /* Hero */
 html[dir="rtl"] .hero::before {
-	background: linear-gradient(270deg, rgba(10, 49, 44, .88) 0%, rgba(10, 49, 44, .62) 55%, rgba(10, 49, 44, .35) 100%);
+	background: linear-gradient(270deg, rgba(17, 17, 17, .88) 0%, rgba(17, 17, 17, .62) 55%, rgba(17, 17, 17, .35) 100%);
 }
 html[dir="rtl"] .hero .auto-container { text-align: right; }
 

@@ -61,7 +61,7 @@ function head(page, lang, extra = {}) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(m.title)}</title>
 <meta name="description" content="${esc(m.desc)}">
-<meta name="theme-color" content="#0a312c">
+<meta name="theme-color" content="#111111">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="canonical" href="${canonical}">
 ${alt}
@@ -232,7 +232,7 @@ const testimonialSection = (lang) => !TESTIMONIALS.length ? '' : `<section class
 const ctaBand = (lang, reveal = false) => {
 	const t = T[lang];
 	const pre = lang === 'ar' ? '../' : '';
-	return `<section class="call-to-action" style="background-image:linear-gradient(rgba(10,49,44,.72),rgba(10,49,44,.82)),url(${pre}images/illustrative/hero-960.jpg);">
+	return `<section class="call-to-action" style="background-image:linear-gradient(rgba(17,17,17,.72),rgba(17,17,17,.82)),url(${pre}images/illustrative/hero-960.jpg);">
 	<div class="auto-container">
 		<div class="row"${reveal ? rv(0) : ''}>
 			<div class="text">${esc(t.cta.text)}</div>
@@ -590,10 +590,10 @@ function page404() {
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="stylesheet" href="/css/fonts.css">
 <style>
-body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f6f2e4;color:#212121;font-family:Montserrat,Cairo,sans-serif;text-align:center;padding:24px}
-img{width:240px;height:auto;margin-bottom:24px}h1{color:#0a312c;margin:0 0 8px}p{margin:0 0 20px;font-size:17px}
-a{display:inline-block;margin:6px;padding:12px 26px;background:#0a312c;color:#fff;text-decoration:none;border-radius:3px;font-weight:700}
-a:focus-visible{outline:3px solid #b8860b;outline-offset:2px}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f5f5f5;color:#212121;font-family:Montserrat,Cairo,sans-serif;text-align:center;padding:24px}
+img{width:240px;height:auto;margin-bottom:24px}h1{color:#111111;margin:0 0 8px}p{margin:0 0 20px;font-size:17px}
+a{display:inline-block;margin:6px;padding:12px 26px;background:#111111;color:#fff;text-decoration:none;border-radius:3px;font-weight:700}
+a:focus-visible{outline:3px solid #111111;outline-offset:2px}
 </style>
 </head>
 <body>
