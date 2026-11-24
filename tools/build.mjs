@@ -251,7 +251,7 @@ const serviceCard = (s, i, lang, reveal = false) => {
 	const pre = lang === 'ar' ? '../' : '';
 	return `<div class="service-block-two col-lg-4 col-md-6 col-sm-12 col-xs-12"${reveal ? rv(i % 3) : ''}>
 	<div class="inner-box">
-		<div class="image-layer" style="background-image:url(${pre}images/resource/service-block-two-bg.png)"></div>
+		<div class="image-layer" style="background-image:url(${pre}images/resource/service-block-two-bg.webp)"></div>
 		<div class="icon-box"><span class="${s.icon}" aria-hidden="true"></span></div>
 		<h3>${esc(s.h)}</h3>
 		<div class="text">${esc(s.t)}</div>

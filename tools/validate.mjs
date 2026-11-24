@@ -3,7 +3,7 @@
    unique and referenced ids exist, one <h1>, images have alt, SEO tags present. */
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 import { PAGES } from './copy.mjs';
-const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+const root = process.env.VALIDATE_ROOT ? path.resolve(process.env.VALIDATE_ROOT) : path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pages = PAGES.flatMap((p) => [`${p}.html`, `ar/${p}.html`]).concat('404.html');
 let errors = 0; const err = (f, m) => { errors++; console.log(`✗ ${f}: ${m}`); };
 for (const f of pages) {
