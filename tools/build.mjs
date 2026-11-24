@@ -148,47 +148,47 @@ function header(page, lang) {
 
 function footer(lang) {
 	const t = T[lang];
+	const f = t.footer;
 	const pre = lang === 'ar' ? '../' : '';
-	const links = PAGES.map((p) => `<li><a href="${p}.html">${esc(t.nav[p])}</a></li>`).join('');
+	const links = PAGES.map((p) => `<li><a href="${p}.html"><span class="fh-ul">${esc(t.nav[p])}</span></a></li>`).join('');
+	const social = SOCIAL.map((s) => `<li><a href="${s.url}" target="_blank" rel="noopener noreferrer" aria-label="${esc(t.followOn(s.label[lang]))}"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${s.svg}"/></svg></span><span class="fh-ul">${esc(s.label[lang])}</span></a></li>`).join('');
+	const row = (icon, label, value) => `<li><span class="ico fa ${icon}" aria-hidden="true"></span><div><span class="lbl">${esc(label)}</span>${value}</div></li>`;
 	return `</main>
 
-<footer class="main-footer">
-	<div class="auto-container">
-		<div class="widgets-section">
-			<div class="row clearfix">
-				<div class="footer-column col-md-5 col-sm-12 col-xs-12">
-					<div class="footer-widget about-widget">
-						<div class="footer-logo"><figure><a href="index.html"><img src="${pre}images/brand/logo-white-300.png" srcset="${pre}images/brand/logo-white-300.png 300w, ${pre}images/brand/logo-white-600.png 600w" sizes="210px" width="210" height="66" alt="${esc(t.logoAlt)}" loading="lazy"></a></figure></div>
-						<div class="widget-content">
-							<p class="text">${esc(t.footer.about)}</p>
-							<ul class="contact-info">
-								<li><span class="icon fa fa-map-marker" aria-hidden="true"></span><a href="${COMPANY.mapsUrl}" target="_blank" rel="noopener noreferrer">${esc(COMPANY.address[lang])}</a></li>
-								<li><span class="icon fa fa-phone" aria-hidden="true"></span><a href="tel:${COMPANY.phoneTel}">${ltr(COMPANY.phoneDisplay)}</a></li>
-								<li><span class="icon fa fa-whatsapp" aria-hidden="true"></span><a href="${waLink(lang)}" target="_blank" rel="noopener noreferrer">${esc(t.waLabel)} ${ltr(COMPANY.phoneDisplay)}</a></li>
-								<li><span class="icon fa fa-envelope-o" aria-hidden="true"></span><a href="mailto:${COMPANY.email}">${COMPANY.email}</a></li>
-							</ul>
-						</div>
-					</div>
+<footer class="fh-footer">
+	<div class="fh-footer-main">
+		<div class="auto-container">
+			<div class="fh-footer-grid">
+				<div class="fh-footer-col fh-footer-company">
+					<a class="fh-footer-logo" href="index.html"><img src="${pre}images/brand/logo-white-300.png" srcset="${pre}images/brand/logo-white-300.png 300w, ${pre}images/brand/logo-white-600.png 600w" sizes="200px" width="200" height="63" alt="${esc(t.logoAlt)}" loading="lazy"></a>
+					<p class="fh-footer-about">${esc(f.about)}</p>
+					<ul class="fh-footer-contact">
+						${row('fa-map-marker', t.addrLabel, `<a class="fh-ul" href="${COMPANY.mapsUrl}" target="_blank" rel="noopener noreferrer">${esc(COMPANY.address[lang])}</a>`)}
+						${row('fa-phone', t.callLabel, `<a class="fh-ul" href="tel:${COMPANY.phoneTel}">${ltr(COMPANY.phoneDisplay)}</a>`)}
+						${row('fa-whatsapp', t.waLabel, `<a class="fh-ul" href="${waLink(lang)}" target="_blank" rel="noopener noreferrer">${esc(f.waCta)}</a>`)}
+						${row('fa-envelope-o', t.emailLabel, `<a class="fh-ul" href="mailto:${COMPANY.email}">${COMPANY.email}</a>`)}
+					</ul>
 				</div>
-				<div class="footer-column col-md-3 col-sm-6 col-xs-12">
-					<div class="footer-widget">
-						<h2 class="fh-foot-title">${esc(t.footer.links)}</h2>
-						<ul class="fh-foot-links">${links}</ul>
-					</div>
-				</div>
-				<div class="footer-column col-md-4 col-sm-6 col-xs-12">
-					<div class="footer-widget">
-						<h2 class="fh-foot-title">${esc(t.footer.follow)}</h2>
-						${socialList(lang, 'large')}
-					</div>
+				<nav class="fh-footer-col" aria-labelledby="ft-links">
+					<h2 class="fh-footer-title" id="ft-links">${esc(f.links)}</h2>
+					<ul class="fh-footer-links">
+						${links}
+					</ul>
+				</nav>
+				<div class="fh-footer-col">
+					<h2 class="fh-footer-title" id="ft-follow">${esc(f.follow)}</h2>
+					<ul class="fh-footer-social" aria-labelledby="ft-follow">
+						${social}
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="footer-bottom">
+	<div class="fh-footer-bottom">
 		<div class="auto-container">
-			<div class="clearfix">
-				<div class="pull-left"><div class="copyright">&copy; ${YEAR} <a href="index.html">${esc(COMPANY.name[lang])}</a>. ${esc(t.footer.rights)}</div></div>
+			<div class="fh-footer-bottom-inner">
+				<p class="copy">&copy; ${YEAR} <a href="index.html">${esc(COMPANY.name[lang])}</a>. ${esc(f.rights)}</p>
+				<p class="tag">${esc(f.tagline)}</p>
 			</div>
 		</div>
 	</div>
@@ -322,7 +322,7 @@ function pageIndex(lang) {
 	}).join('\n');
 	return head('index', lang, { jsonld }) + header('index', lang) + `
 <section class="hero">
-	<img src="${pre}images/illustrative/hero-1920.jpg" srcset="${pre}images/illustrative/hero-960.jpg 960w, ${pre}images/illustrative/hero-1920.jpg 1920w" sizes="100vw" alt="" width="1920" height="1280" fetchpriority="high" class="hero-bg">
+	<img src="${pre}images/illustrative/hero-1774.jpg" srcset="${pre}images/illustrative/hero-960.jpg 960w, ${pre}images/illustrative/hero-1774.jpg 1774w" sizes="100vw" alt="" width="1774" height="887" fetchpriority="high" class="hero-bg">
 	<span class="illustrative-tag" data-replaceable-image>${esc(ILLUSTRATIVE[lang])}</span>
 	<div class="auto-container">
 		<span class="eyebrow">${esc(t.hero.eyebrow)}</span>

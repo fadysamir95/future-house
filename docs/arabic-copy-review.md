@@ -194,6 +194,8 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `formMsg.emailLbl` | Email | البريد الإلكتروني | |
 | `formMsg.interest` | I am looking to | أبحث عن | |
 | `formMsg.message` | Message | الرسالة | |
+| `footer.waCta` | Chat on WhatsApp | تواصل عبر واتساب | |
+| `footer.tagline` | Est. 2019 · Alexandria, Egypt | تأسست عام 2019 · الإسكندرية، مصر | |
 | `footer.about` | Real estate marketing and brokerage company established in 2019. We market, buy, sell and rent properties in Alexandria, New Cairo and beyond. | شركة تسويق وسمسرة عقارية تأسست عام 2019. نسوّق العقارات ونشتريها ونبيعها ونؤجّرها في الإسكندرية والقاهرة الجديدة وغيرهما. | |
 | `footer.links` | Quick links | روابط سريعة | |
 | `footer.follow` | Follow us | تابعنا | |

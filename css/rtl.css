@@ -25,7 +25,8 @@ html[dir="rtl"] .theme-btn,
 html[dir="rtl"] .btn-outline-light,
 html[dir="rtl"] .hero .btn-style-two,
 html[dir="rtl"] .main-menu .navigation > li > a,
-html[dir="rtl"] .main-footer h2.fh-foot-title,
+html[dir="rtl"] .fh-footer-title,
+html[dir="rtl"] .fh-footer-contact .lbl,
 html[dir="rtl"] .sec-title h2,
 html[dir="rtl"] .page-title h1,
 html[dir="rtl"] .call-to-action h2,
@@ -79,11 +80,6 @@ html[dir="rtl"] .fh-form input[type="email"] { direction: ltr; text-align: right
 html[dir="rtl"] .fh-form select { background-position: left 12px center; }
 .ltr-num { direction: ltr; unicode-bidi: embed; display: inline-block; }
 
-/* Footer */
-html[dir="rtl"] .main-footer .footer-bottom .pull-left { float: right !important; }
-html[dir="rtl"] .main-footer .footer-bottom .pull-right { float: left !important; }
-html[dir="rtl"] .main-footer .contact-info li { padding-left: 0; padding-right: 32px; }
-html[dir="rtl"] .main-footer .contact-info li .icon { left: auto; right: 0; }
 
 @media only screen and (max-width: 1023px) {
 	html[dir="rtl"] .fh-menu-btn { right: auto; left: 0; }

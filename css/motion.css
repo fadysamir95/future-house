@@ -103,9 +103,7 @@ html[dir="rtl"] { --dir: -1; }
 }
 .theme-btn:active, .btn-outline-light:active { transform: translateY(0); box-shadow: none; transition-duration: .1s; }
 
-.fh-contact-list a, .fh-faq .answer a, .main-footer .fh-foot-links a, .main-footer .contact-info li a { transition: color .25s ease, text-decoration-color .25s ease; }
-.main-footer .fh-foot-links a { display: inline-block; transition: color .25s ease, transform .3s var(--fh-ease); }
-.main-footer .fh-foot-links a:hover { transform: translateX(calc(var(--dir) * 4px)); }
+.fh-contact-list a, .fh-faq .answer a { transition: color .25s ease, text-decoration-color .25s ease; }
 
 .fh-faq summary { transition: color .25s ease, background-color .25s ease; }
 .fh-faq summary:hover { background: var(--fh-ecru-100); }
@@ -178,8 +176,7 @@ html[dir="rtl"] { --dir: -1; }
 	.hero::after { display: none; }
 	.hero-bg { translate: none !important; scale: none !important; }
 	.service-block-two .inner-box:hover, .service-block-two .inner-box:focus-within, .fh-card:hover, .fh-card:focus-within,
-	.theme-btn:hover, .theme-btn:focus-visible, .btn-outline-light:hover, .fh-social a:hover, .fh-social a:focus-visible,
-	.main-footer .fh-foot-links a:hover { transform: none !important; }
+	.theme-btn:hover, .theme-btn:focus-visible, .btn-outline-light:hover, .fh-social a:hover, .fh-social a:focus-visible { transform: none !important; }
 	.service-block-two .inner-box:hover .image-layer, .fh-figure:hover img, .fh-card:hover .icon, .fh-social a:hover svg { transform: none !important; scale: none !important; }
 	.main-header .nav-outer, .main-menu .navigation > li, .scroll-to-top { transition: none !important; translate: none !important; }
 }

@@ -173,7 +173,7 @@ export const T = {
 			greeting: 'Hello Future House,',
 			name: 'Name', phoneLbl: 'Phone', emailLbl: 'Email', interest: 'I am looking to', message: 'Message'
 		},
-		footer: { about: 'Real estate marketing and brokerage company established in 2019. We market, buy, sell and rent properties in Alexandria, New Cairo and beyond.', links: 'Quick links', follow: 'Follow us', rights: 'All rights reserved.' },
+		footer: { waCta: 'Chat on WhatsApp', tagline: 'Est. 2019 · Alexandria, Egypt', about: 'Real estate marketing and brokerage company established in 2019. We market, buy, sell and rent properties in Alexandria, New Cairo and beyond.', links: 'Quick links', follow: 'Follow us', rights: 'All rights reserved.' },
 		notFound: { title: 'Page not found | Future House', h1: 'Page not found', p: 'The page you are looking for does not exist or has moved.', home: 'Go to the homepage' }
 	},
 
@@ -303,7 +303,7 @@ export const T = {
 			greeting: 'مرحباً فيوتشر هاوس،',
 			name: 'الاسم', phoneLbl: 'الهاتف', emailLbl: 'البريد الإلكتروني', interest: 'أبحث عن', message: 'الرسالة'
 		},
-		footer: { about: 'شركة تسويق وسمسرة عقارية تأسست عام 2019. نسوّق العقارات ونشتريها ونبيعها ونؤجّرها في الإسكندرية والقاهرة الجديدة وغيرهما.', links: 'روابط سريعة', follow: 'تابعنا', rights: 'جميع الحقوق محفوظة.' },
+		footer: { waCta: 'تواصل عبر واتساب', tagline: 'تأسست عام 2019 · الإسكندرية، مصر', about: 'شركة تسويق وسمسرة عقارية تأسست عام 2019. نسوّق العقارات ونشتريها ونبيعها ونؤجّرها في الإسكندرية والقاهرة الجديدة وغيرهما.', links: 'روابط سريعة', follow: 'تابعنا', rights: 'جميع الحقوق محفوظة.' },
 		notFound: { title: 'الصفحة غير موجودة | فيوتشر هاوس', h1: 'الصفحة غير موجودة', p: 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.', home: 'العودة إلى الصفحة الرئيسية' }
 	}
 };
