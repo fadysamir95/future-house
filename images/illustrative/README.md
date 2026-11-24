@@ -14,4 +14,4 @@ once the image is genuinely a Future House photo, delete its label by removing t
 `illustrative-tag` / `figcaption` markup in `tools/build.mjs`, then run `node tools/build.mjs`.
 Elements that carry a placeholder image have a `data-replaceable-image` attribute for easy searching.
 
-The current hero is a sunset residential-compound image supplied by the client (original kept at `source/hero-original.png`). It appears to be AI-generated or rendered, so it must stay labelled as illustrative.
+The current hero is a sunset residential-compound image supplied by the client (original kept at `source/hero-original.png`). It appears to be AI-generated or rendered, The on-image "Illustrative image" label was removed from the hero at the client's request; the About image still carries it.

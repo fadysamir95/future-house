@@ -42,7 +42,6 @@ html[dir="rtl"] { --dir: -1; }
 .hero .lead-text { animation: fh-rise .9s .60s var(--fh-ease) both; }
 .hero .actions .theme-btn { animation: fh-rise .8s .80s var(--fh-ease) both; }
 .hero .actions .theme-btn:nth-child(2) { animation-delay: .92s; }
-.hero .illustrative-tag { animation: fh-rise .8s 1.1s var(--fh-ease) both; }
 
 /* ---------- Scroll reveals ---------- */
 
@@ -171,7 +170,7 @@ html[dir="rtl"] { --dir: -1; }
 
 @media (prefers-reduced-motion: reduce) {
 	.js [data-reveal] { opacity: 1 !important; translate: none !important; transition: none !important; }
-	.hero-bg, .hero::before, .hero .eyebrow, .hero h1, .hero .lead-text, .hero .actions .theme-btn, .hero .illustrative-tag,
+	.hero-bg, .hero::before, .hero .eyebrow, .hero h1, .hero .lead-text, .hero .actions .theme-btn,
 	.fh-faq details[open] .answer { animation: none !important; }
 	.hero::after { display: none; }
 	.hero-bg { translate: none !important; scale: none !important; }

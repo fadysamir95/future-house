@@ -322,8 +322,7 @@ function pageIndex(lang) {
 	}).join('\n');
 	return head('index', lang, { jsonld }) + header('index', lang) + `
 <section class="hero">
-	<img src="${pre}images/illustrative/hero-1774.jpg" srcset="${pre}images/illustrative/hero-960.jpg 960w, ${pre}images/illustrative/hero-1774.jpg 1774w" sizes="100vw" alt="" width="1774" height="887" fetchpriority="high" class="hero-bg">
-	<span class="illustrative-tag" data-replaceable-image>${esc(ILLUSTRATIVE[lang])}</span>
+	<img src="${pre}images/illustrative/hero-1774.jpg" srcset="${pre}images/illustrative/hero-960.jpg 960w, ${pre}images/illustrative/hero-1774.jpg 1774w" sizes="100vw" alt="" width="1774" height="887" fetchpriority="high" class="hero-bg" data-replaceable-image>
 	<div class="auto-container">
 		<span class="eyebrow">${esc(t.hero.eyebrow)}</span>
 		<h1>${esc(t.hero.h1)}</h1>
