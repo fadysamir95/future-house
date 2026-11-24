@@ -47,19 +47,28 @@ export const SOCIAL = [
 /* ------------------------------------------------------------------ copy */
 export const PAGES = ['index', 'about-us', 'services', 'projects', 'team', 'insights', 'faqs', 'contact'];
 /* Pages shown in the header menu (the footer lists every page) */
+/* Google Tag Manager container (GTM-...). NOT the GA4 Measurement ID (G-...): the GA4 tag is
+   configured inside the container. Leave empty to ship the site with no analytics code and no banner. */
+export const ANALYTICS = { gtmId: 'GTM-T6RKB2PP' };
+/* Legal pages: built and listed in the sitemap, linked from the footer bar and the consent banner (not in the menu) */
+export const LEGAL = ['privacy'];
 export const NAV = ['index', 'about-us', 'services', 'projects', 'insights', 'contact'];
 
 export const T = {
 	en: {
 		dir: 'ltr', locale: 'en_US', langName: 'English', switchLabel: 'العربية', switchTitle: 'العربية – Arabic version',
 		skip: 'Skip to main content',
-		nav: { index: 'Home', 'about-us': 'About Us', services: 'Services', projects: 'Developments', team: 'Our Team', insights: 'Insights', faqs: 'FAQs', contact: 'Contact' },
+		nav: { index: 'Home', 'about-us': 'About Us', services: 'Services', projects: 'Developments', team: 'Our Team', insights: 'Insights', faqs: 'FAQs', contact: 'Contact', privacy: 'Privacy & Cookies' },
 		menuOpen: 'Open menu', menuClose: 'Close menu', mainNav: 'Main navigation', breadcrumb: 'Breadcrumb',
 		home: 'Home', logoAlt: 'Future House – Real Estate Marketing', toTop: 'Back to top',
 		followOn: (n) => `Future House on ${n}`,
 		callLabel: 'Phone', waLabel: 'WhatsApp', emailLabel: 'Email', addrLabel: 'Address',
 		waGreeting: 'Hello Future House, I would like to ask about a property.',
 		meta: {
+			privacy: {
+				title: 'Privacy & Cookies | Future House',
+				desc: 'How Future House handles your information: what the website collects, how analytics cookies work, and how to accept, reject or change your choice.'
+			},
 			projects: {
 				title: 'Featured Developments | Future House Real Estate Marketing',
 				desc: 'Developments marketed by Future House, including Sarai, El Patio Oro, Creeks, Alex West and more. Contact us for current offers.'
@@ -214,11 +223,44 @@ export const T = {
 					slides: 'Slides from our educational post', note: 'General information only, not financial advice. Based on an educational post from our official channels.'
 				}
 			},
-			home: { sub: 'Developments we market', h2: 'Featured developments', p: 'Campaign posters for some of the developments we promote. Contact us for current offers.', all: 'View all developments' },
+			home: { sub: 'Developments we market', h2: 'Featured developments', p: 'Campaign posters for some of the developments we promote. Contact us for current offers.', all: 'View all developments', carousel: 'Featured developments, swipe sideways to see more' },
 			about: {
 				journeyH: 'Our people and our journey', journeyP: 'Future House started in 2019 with a vision and has grown into a team of property advisors and consultants. Meet some of them on our team page.',
 				teamLink: 'Meet our team', collageCap: 'From our company anniversary celebration',
 				campH: 'From our campaigns', campP: 'Artwork from Future House brand campaigns published on our social channels. These are creative visuals, not specific projects.'
+			}
+		},
+		legal: {
+			consent: {
+				region: 'Cookie preferences',
+				text: 'We use analytics cookies to understand how visitors use our website and to improve it. They only run if you accept, and you can change your choice at any time.',
+				accept: 'Accept', reject: 'Reject', policy: 'Privacy & cookies'
+			},
+			footer: { privacy: 'Privacy & cookies', settings: 'Cookie settings' },
+			privacy: {
+				title: 'Privacy & Cookies', updated: 'Last updated: 24 November 2026',
+				intro: 'This notice explains what this website collects, how analytics cookies work, and the choices you have.',
+				sections: [
+					['Who we are', ['This website is operated by Future House, a real estate marketing and brokerage company based at Roushdy, Abu Qir, Building 405 B, Alexandria, Egypt. For any privacy question, contact us at info@futurehouseegy.com or +20 155 338 2233.']],
+					['What information we collect', [
+						['list', [
+							'Messages you send us. The contact form does not store anything on this website. When you submit it, WhatsApp opens with your message ready to send, and what you send is handled by WhatsApp. If you call, message or email us, we receive the details you choose to share.',
+							'Website analytics, only if you accept. With your consent we use Google Tag Manager and Google Analytics to count visits and understand which pages and links are used, for example clicks on WhatsApp, phone and email links. This includes pages viewed, approximate location, and device and browser type. We do not use advertising cookies.'
+						]]
+					]],
+					['Cookies and similar storage', [
+						['list', [
+							'Your choice (fh_consent): stored in your browser to remember whether you accepted or rejected analytics. It is not sent to us or to anyone else.',
+							'Analytics cookies (_ga and _ga_*): set by Google Analytics only after you accept, to tell visitors apart and measure visits.'
+						]],
+						'If you reject, or have not made a choice, Google Tag Manager and Google Analytics are not loaded and no analytics cookies are set.'
+					]],
+					['Your choices', ['You can accept or reject analytics when you first visit, and change your mind at any time using "Cookie settings" at the bottom of every page. Rejecting does not affect how you can use the website. You can also delete cookies in your browser settings.']],
+					['Third parties', ['Google (Tag Manager and Analytics, only after you accept) and WhatsApp (when you choose to message us). Links to our social media pages, Google Maps and other websites lead to services with their own privacy policies. The fonts and images on this website are hosted on our own site.']],
+					['How long we keep data', ['Analytics data is kept for the period configured in our Google Analytics account. Messages you send us are kept only as long as needed to reply to you and for our business records.']],
+					['Your rights', ['Under applicable data protection law, including Egypt\'s Personal Data Protection Law (Law No. 151 of 2020), you may ask to access, correct or delete your personal data, or object to how it is used. Contact us at info@futurehouseegy.com.']],
+					['Changes to this notice', ['We may update this notice from time to time. The date at the top shows when it was last changed.']]
+				]
 			}
 		},
 		formMsg: {
@@ -240,13 +282,17 @@ export const T = {
 	ar: {
 		dir: 'rtl', locale: 'ar_EG', langName: 'العربية', switchLabel: 'English', switchTitle: 'English version',
 		skip: 'انتقل إلى المحتوى الرئيسي',
-		nav: { index: 'الرئيسية', 'about-us': 'من نحن', services: 'خدماتنا', projects: 'المشروعات', team: 'فريقنا', insights: 'مقالات ونصائح', faqs: 'الأسئلة الشائعة', contact: 'تواصل معنا' },
+		nav: { index: 'الرئيسية', 'about-us': 'من نحن', services: 'خدماتنا', projects: 'المشروعات', team: 'فريقنا', insights: 'مقالات ونصائح', faqs: 'الأسئلة الشائعة', contact: 'تواصل معنا', privacy: 'الخصوصية وملفات تعريف الارتباط' },
 		menuOpen: 'فتح القائمة', menuClose: 'إغلاق القائمة', mainNav: 'القائمة الرئيسية', breadcrumb: 'مسار التنقل',
 		home: 'الرئيسية', logoAlt: 'فيوتشر هاوس – تسويق عقاري', toTop: 'العودة إلى الأعلى',
 		followOn: (n) => `فيوتشر هاوس على ${n}`,
 		callLabel: 'الهاتف', waLabel: 'واتساب', emailLabel: 'البريد الإلكتروني', addrLabel: 'العنوان',
 		waGreeting: 'مرحباً فيوتشر هاوس، أود الاستفسار عن عقار.',
 		meta: {
+			privacy: {
+				title: 'الخصوصية وملفات تعريف الارتباط | فيوتشر هاوس',
+				desc: 'كيف تتعامل فيوتشر هاوس مع معلوماتك: ما يجمعه الموقع، وكيف تعمل ملفات تعريف الارتباط التحليلية، وكيفية قبول اختيارك أو رفضه أو تغييره.'
+			},
 			projects: {
 				title: 'المشروعات المميزة | فيوتشر هاوس للتسويق العقاري',
 				desc: 'مشروعات تسوّقها فيوتشر هاوس، منها سراي وإل باتيو أورو وكريكس وأليكس ويست وغيرها. تواصل معنا لمعرفة العروض الحالية.'
@@ -401,11 +447,44 @@ export const T = {
 					slides: 'شرائح من منشورنا التعليمي', note: 'معلومات عامة فقط وليست نصيحة مالية. مستندة إلى منشور تعليمي من قنواتنا الرسمية.'
 				}
 			},
-			home: { sub: 'مشروعات نسوّقها', h2: 'مشروعات مميزة', p: 'ملصقات حملات لبعض المشروعات التي نروّج لها. تواصل معنا لمعرفة العروض الحالية.', all: 'عرض جميع المشروعات' },
+			home: { sub: 'مشروعات نسوّقها', h2: 'مشروعات مميزة', p: 'ملصقات حملات لبعض المشروعات التي نروّج لها. تواصل معنا لمعرفة العروض الحالية.', all: 'عرض جميع المشروعات', carousel: 'المشروعات المميزة، اسحب جانبياً لعرض المزيد' },
 			about: {
 				journeyH: 'فريقنا ومسيرتنا', journeyP: 'بدأت فيوتشر هاوس عام 2019 برؤية، وتحوّلت إلى فريق من المستشارين والاستشاريين العقاريين. تعرّف على بعضهم في صفحة فريقنا.',
 				teamLink: 'تعرّف على فريقنا', collageCap: 'من احتفال الذكرى السنوية للشركة',
 				campH: 'من حملاتنا', campP: 'أعمال فنية من حملات فيوتشر هاوس المنشورة على قنواتنا في وسائل التواصل. هذه مواد إبداعية وليست مشروعات بعينها.'
+			}
+		},
+		legal: {
+			consent: {
+				region: 'تفضيلات ملفات تعريف الارتباط',
+				text: 'نستخدم ملفات تعريف الارتباط التحليلية لفهم كيفية استخدام الزوار لموقعنا وتحسينه. لا تعمل إلا إذا وافقت، ويمكنك تغيير اختيارك في أي وقت.',
+				accept: 'قبول', reject: 'رفض', policy: 'الخصوصية وملفات تعريف الارتباط'
+			},
+			footer: { privacy: 'الخصوصية وملفات تعريف الارتباط', settings: 'إعدادات ملفات تعريف الارتباط' },
+			privacy: {
+				title: 'الخصوصية وملفات تعريف الارتباط', updated: 'آخر تحديث: 24 نوفمبر 2026',
+				intro: 'يوضح هذا الإشعار ما الذي يجمعه هذا الموقع، وكيف تعمل ملفات تعريف الارتباط التحليلية، والخيارات المتاحة لك.',
+				sections: [
+					['من نحن', ['يُدير هذا الموقع شركة فيوتشر هاوس، شركة تسويق وسمسرة عقارية، ومقرها رشدي، أبو قير، مبنى 405 ب، الإسكندرية، مصر. لأي استفسار عن الخصوصية، تواصل معنا على info@futurehouseegy.com أو على الرقم +20 155 338 2233.']],
+					['ما المعلومات التي نجمعها', [
+						['list', [
+							'الرسائل التي ترسلها إلينا. لا يحفظ نموذج التواصل أي بيانات على هذا الموقع. عند إرساله يُفتح واتساب برسالتك جاهزة للإرسال، ويتولى واتساب معالجة ما ترسله. وإذا اتصلت بنا أو راسلتنا أو أرسلت لنا بريداً إلكترونياً، نتلقى البيانات التي تختار مشاركتها.',
+							'تحليلات الموقع، فقط إذا وافقت. بموافقتك نستخدم Google Tag Manager وGoogle Analytics لإحصاء الزيارات وفهم الصفحات والروابط المستخدمة، مثل النقر على روابط واتساب والهاتف والبريد الإلكتروني. ويشمل ذلك الصفحات التي تمت زيارتها والموقع التقريبي ونوع الجهاز والمتصفح. لا نستخدم ملفات تعريف ارتباط إعلانية.'
+						]]
+					]],
+					['ملفات تعريف الارتباط والتخزين المشابه', [
+						['list', [
+							'اختيارك (fh_consent): يُحفظ في متصفحك لتذكّر قبولك أو رفضك للتحليلات. ولا يُرسل إلينا ولا إلى أي جهة أخرى.',
+							'ملفات التحليلات (_ga و _ga_*): يضعها Google Analytics فقط بعد موافقتك، للتمييز بين الزوار وقياس الزيارات.'
+						]],
+						'إذا رفضت أو لم تختر، لا يتم تحميل Google Tag Manager وGoogle Analytics ولا تُوضع أي ملفات تعريف ارتباط تحليلية.'
+					]],
+					['خياراتك', ['يمكنك قبول التحليلات أو رفضها عند زيارتك الأولى، وتغيير رأيك في أي وقت من خلال «إعدادات ملفات تعريف الارتباط» أسفل كل صفحة. ولا يؤثر الرفض على استخدامك للموقع. ويمكنك أيضاً حذف ملفات تعريف الارتباط من إعدادات متصفحك.']],
+					['الأطراف الثالثة', ['Google (‏Tag Manager وAnalytics، فقط بعد موافقتك) وواتساب (عندما تختار مراسلتنا). تؤدي الروابط إلى صفحاتنا على وسائل التواصل وخرائط جوجل ومواقع أخرى إلى خدمات لها سياسات خصوصية خاصة بها. أما الخطوط والصور في هذا الموقع فتُستضاف على موقعنا نفسه.']],
+					['مدة الاحتفاظ بالبيانات', ['تُحفظ بيانات التحليلات للمدة المضبوطة في حساب Google Analytics الخاص بنا. وتُحفظ الرسائل التي ترسلها إلينا للمدة اللازمة فقط للرد عليك ولسجلات عملنا.']],
+					['حقوقك', ['وفقاً لقوانين حماية البيانات المعمول بها، ومنها قانون حماية البيانات الشخصية المصري (القانون رقم 151 لسنة 2020)، يحق لك طلب الاطلاع على بياناتك الشخصية أو تصحيحها أو حذفها، أو الاعتراض على طريقة استخدامها. تواصل معنا على info@futurehouseegy.com.']],
+					['تعديلات هذا الإشعار', ['قد نُحدّث هذا الإشعار من وقت لآخر. يوضح التاريخ في أعلاه آخر تعديل.']]
+				]
 			}
 		},
 		formMsg: {

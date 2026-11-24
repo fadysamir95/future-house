@@ -2,9 +2,9 @@
 /* Static checks for the generated pages: local links/assets resolve, ids are
    unique and referenced ids exist, one <h1>, images have alt, SEO tags present. */
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
-import { PAGES } from './copy.mjs';
+import { PAGES, LEGAL, ANALYTICS } from './copy.mjs';
 const root = process.env.VALIDATE_ROOT ? path.resolve(process.env.VALIDATE_ROOT) : path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const pages = PAGES.flatMap((p) => [`${p}.html`, `ar/${p}.html`]).concat('404.html');
+const pages = [...PAGES, ...LEGAL].flatMap((p) => [`${p}.html`, `ar/${p}.html`]).concat('404.html');
 let errors = 0; const err = (f, m) => { errors++; console.log(`✗ ${f}: ${m}`); };
 for (const f of pages) {
 	const html = fs.readFileSync(path.join(root, f), 'utf8');
@@ -37,6 +37,13 @@ for (const f of pages) {
 	ids.filter((x, i) => ids.indexOf(x) !== i).forEach((d) => err(f, `duplicate id ${d}`));
 	for (const m of html.matchAll(/aria-(?:controls|describedby)="([^"]+)"/g)) m[1].split(' ').forEach((id) => { if (!ids.includes(id)) err(f, `aria ref to missing id ${id}`); });
 	for (const m of html.matchAll(/<label for="([^"]+)"/g)) if (!ids.includes(m[1])) err(f, `label for missing id ${m[1]}`);
+	/* analytics: one GTM container only, never loaded statically, only via js/consent.js after consent */
+	if (f !== '404.html') {
+		const ids = [...html.matchAll(/GTM-[A-Z0-9]+/g)].map((m) => m[0]);
+		const tags = (html.match(/<script[^>]*data-gtm-id=/g) || []).length;
+		if (ANALYTICS.gtmId && (tags !== 1 || ids.length !== 1 || ids[0] !== ANALYTICS.gtmId)) err(f, `expected exactly one GTM container (${ANALYTICS.gtmId}), found tags=${tags} ids=${ids.join(',')}`);
+		if (/googletagmanager\.com|google-analytics\.com|gtag\/js/.test(html)) err(f, 'analytics script referenced statically (must load only through js/consent.js after consent)');
+	} else if (/GTM-|googletagmanager/.test(html)) err(f, '404 page must not carry analytics');
 	const h1 = (html.match(/<h1[\s>]/g) || []).length; if (h1 !== 1) err(f, `${h1} <h1> elements`);
 	for (const m of html.matchAll(/<img\b[^>]*>/g)) if (!/\salt="/.test(m[0])) err(f, `img without alt: ${m[0].slice(0, 70)}`);
 	for (const m of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) if (!/rel="[^"]*noopener/.test(m[0])) err(f, 'target=_blank without noopener');

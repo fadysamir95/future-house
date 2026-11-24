@@ -18,7 +18,9 @@ const SITE = 'https://futurehouseegy.com';
 const YEAR = new Date().getFullYear();
 const TODAY = new Date().toISOString().slice(0, 10);
 
-import { COMPANY, SOCIAL, PAGES, NAV, T, TEAM, TESTIMONIALS } from './copy.mjs';
+import { COMPANY, SOCIAL, PAGES, NAV, LEGAL, ANALYTICS, T, TEAM, TESTIMONIALS } from './copy.mjs';
+
+const ALL_PAGES = [...PAGES, ...LEGAL];
 import { USED, byName } from './media.mjs';
 
 
@@ -46,6 +48,26 @@ const socialList = (lang, cls = '') =>
 const waLink = (lang) => `https://wa.me/${COMPANY.wa}?text=${encodeURIComponent(T[lang].waGreeting)}`;
 
 /* -------------------------------------------------------------- fragments */
+/* Cookie banner (hidden until js/consent.js finds no stored choice). Only emitted when a GTM container is configured. */
+function consentBanner(lang) {
+	if (!ANALYTICS.gtmId) return '';
+	const c = T[lang].legal.consent;
+	return `<div id="fh-consent" class="fh-consent" role="region" aria-label="${esc(c.region)}" hidden>
+	<div class="auto-container fh-consent-inner">
+		<p class="fh-consent-text">${esc(c.text)} <a href="privacy.html">${esc(c.policy)}</a></p>
+		<div class="fh-consent-actions">
+			<button type="button" class="fh-consent-btn" data-fh-consent="denied">${esc(c.reject)}</button>
+			<button type="button" class="fh-consent-btn fh-consent-accept" data-fh-consent="granted">${esc(c.accept)}</button>
+		</div>
+	</div>
+</div>
+`;
+}
+const legalLinks = (lang) => {
+	const f = T[lang].legal.footer;
+	return `<a href="privacy.html">${esc(f.privacy)}</a>${ANALYTICS.gtmId ? ` <span aria-hidden="true">·</span> <button type="button" class="fh-link-btn" data-fh-consent-open>${esc(f.settings)}</button>` : ''}`;
+};
+
 function head(page, lang, extra = {}) {
 	const t = T[lang];
 	const m = extra.meta || t.meta[page];
@@ -55,7 +77,7 @@ function head(page, lang, extra = {}) {
 		`\n<link rel="alternate" hreflang="x-default" href="${urlOf(page, 'en')}">`;
 	const ogImg = `${SITE}/images/brand/og-image.jpg`;
 	return `<!DOCTYPE html>
-<html lang="${lang}" dir="${t.dir}">
+<html lang="${lang}" dir="${t.dir}" data-page="${page}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,7 +128,7 @@ function header(page, lang) {
 		`<li${p === page ? ' class="current"' : ''}><a href="${p}.html"${p === page ? ' aria-current="page"' : ''}>${esc(t.nav[p])}</a></li>`).join('\n\t\t\t\t\t\t\t\t\t');
 	return `<body>
 <a class="skip-link" href="#main">${esc(t.skip)}</a>
-<div class="page-wrapper">
+${consentBanner(lang)}<div class="page-wrapper">
 
 <header class="main-header">
 	<div class="header-top">
@@ -188,6 +210,7 @@ function footer(lang) {
 		<div class="auto-container">
 			<div class="fh-footer-bottom-inner">
 				<p class="copy">&copy; ${YEAR} <a href="index.html">${esc(COMPANY.name[lang])}</a>. ${esc(f.rights)}</p>
+				<p class="legal">${legalLinks(lang)}</p>
 				<p class="tag">${esc(f.tagline)}</p>
 			</div>
 		</div>
@@ -199,6 +222,7 @@ function footer(lang) {
 <button type="button" class="scroll-to-top" aria-label="${esc(t.toTop)}"><span class="fa fa-long-arrow-up" aria-hidden="true"></span></button>
 
 <script src="${pre}js/site.js" defer></script>
+${ANALYTICS.gtmId ? `<script src="${pre}js/consent.js" data-gtm-id="${ANALYTICS.gtmId}" defer></script>\n` : ''}
 </body>
 </html>
 `;
@@ -327,13 +351,14 @@ function sizesFor(cols) {
 /* Masonry columns (see .fh-masonry in css/brand.css): 3 columns >= 992px, 2 >= 576px, 1 below.
    The "four" variant (home teaser) is 4 columns >= 1230px, 2 >= 576px, 1 below. */
 const SIZES_MASONRY = '(min-width: 1230px) 370px, (min-width: 992px) calc((100vw - 90px) / 3), (min-width: 576px) calc((100vw - 60px) / 2), calc(100vw - 30px)';
-const SIZES_MASONRY_FOUR = '(min-width: 1230px) 270px, (min-width: 576px) calc((100vw - 60px) / 2), calc(100vw - 30px)';
+/* Home teaser (.fh-dev-row): 4 columns >= 1230px, 2 columns >= 576px, swipeable carousel (cards 78vw, max 300px) below */
+const SIZES_DEV = '(min-width: 1230px) 270px, (min-width: 576px) calc((100vw - 60px) / 2), min(300px, 78vw)';
 
-function projectCard(name, lang, i, sizes = SIZES_MASONRY) {
+function projectCard(name, lang, i, sizes = SIZES_MASONRY, uniform = false) {
 	const u = byName(name), p = T[lang].pages2;
 	const meta = [u.developer ? `${esc(p.projects.by)} ${bdi(u.developer)}` : '', u.location ? esc(u.location[lang]) : ''].filter(Boolean).join(' · ');
 	const wa = `https://wa.me/${COMPANY.wa}?text=${encodeURIComponent(p.waAbout.replace('{name}', u.name))}`;
-	return `<div class="fh-masonry-item"${rv(i % 3)}><figure class="fh-poster">${mlink(name, lang, mimg(name, lang, sizes))}<figcaption><h3>${bdi(u.name)}</h3>${meta ? `<p class="meta">${meta}</p>` : ''}<a class="fh-ask" href="${wa}" target="_blank" rel="noopener noreferrer"><span class="fa fa-whatsapp" aria-hidden="true"></span> ${esc(p.projects.ask)}</a></figcaption></figure></div>`;
+	return `<div class="${uniform ? 'fh-dev-item' : 'fh-masonry-item'}"${rv(i % 3)}><figure class="fh-poster">${mlink(name, lang, mimg(name, lang, sizes))}<figcaption><h3>${bdi(u.name)}</h3>${meta ? `<p class="meta">${meta}</p>` : ''}<a class="fh-ask" href="${wa}" target="_blank" rel="noopener noreferrer"><span class="fa fa-whatsapp" aria-hidden="true"></span> ${esc(p.projects.ask)}</a></figcaption></figure></div>`;
 }
 
 function personCard(name, lang, i, cols = 'col-lg-3 col-md-4 col-sm-6 col-xs-6') {
@@ -350,6 +375,19 @@ const DEV_ORDER = ['sarai-compound-new-cairo-madinet-masr', 'el-patio-oro-new-ca
 const PROMO_ORDER = USED.filter((u) => u.kind === 'promotion').map((u) => u.newName);
 const RANK_ORDER = ['top-performers-q2-2026-announcement', ...USED.filter((u) => u.kind === 'rank').map((u) => u.newName)];
 const CAMPAIGNS = USED.filter((u) => u.kind === 'campaign').map((u) => u.newName);
+
+/* "From our campaigns": one shared section, used on the About page and the Home page. */
+const campaignsSection = (lang, tint = true) => {
+	const t = T[lang];
+	return `<section class="fh-section${tint ? ' tint' : ''}">
+	<div class="auto-container">
+		<div class="fh-section-head"${rv()}><h2>${esc(t.pages2.about.campH)}</h2><p>${esc(t.pages2.about.campP)}</p></div>
+		<div class="row fh-row-equal">
+${CAMPAIGNS.map((n, i) => `<div class="col-md-3 col-sm-6 col-xs-6"${rv(i % 4)}><figure class="fh-poster compact">${mlink(n, lang, mimg(n, lang, sizesFor('col-md-3 col-sm-6 col-xs-6')))}</figure></div>`).join('\n')}
+		</div>
+	</div>
+</section>`;
+};
 const SLIDES = USED.filter((u) => u.kind === 'slide' && u.n > 0).sort((a, b) => a.n - b.n).map((u) => u.newName);
 
 function pageIndex(lang) {
@@ -425,17 +463,19 @@ ${areas}
 	</div>
 </section>
 
-<section class="fh-section">
+${campaignsSection(lang, false)}
+
+<section class="fh-section tint">
 	<div class="auto-container">
 		<div class="fh-section-head"${rv()}><div class="sub-title">${esc(t.pages2.home.sub)}</div><h2>${esc(t.pages2.home.h2)}</h2><p>${esc(t.pages2.home.p)}</p></div>
-		<div class="fh-masonry four">
-${DEV_ORDER.slice(0, 4).map((n, i) => projectCard(n, lang, i, SIZES_MASONRY_FOUR)).join('\n')}
+		<div class="fh-dev-row" role="region" tabindex="0" aria-label="${esc(t.pages2.home.carousel)}">
+${DEV_ORDER.slice(0, 4).map((n, i) => projectCard(n, lang, i, SIZES_DEV, true)).join('\n')}
 		</div>
-		<p class="text-center"${rv()}><a class="theme-btn btn-style-one" href="projects.html">${esc(t.pages2.home.all)}</a></p>
+		<div class="fh-dev-cta"${rv()}><a class="theme-btn btn-style-one" href="projects.html">${esc(t.pages2.home.all)}</a></div>
 	</div>
 </section>
 
-<section class="fh-section tint">
+<section class="fh-section">
 	<div class="auto-container">
 		<div class="fh-section-head"${rv()}><div class="sub-title">${esc(t.channels.sub)}</div><h2>${esc(t.channels.h2)}</h2><p>${esc(t.channels.p)}</p></div>
 		<div class="row fh-row-equal">
@@ -488,14 +528,7 @@ function pageAbout(lang) {
 	</div>
 </section>
 
-<section class="fh-section tint">
-	<div class="auto-container">
-		<div class="fh-section-head"${rv()}><h2>${esc(t.pages2.about.campH)}</h2><p>${esc(t.pages2.about.campP)}</p></div>
-		<div class="row fh-row-equal">
-${CAMPAIGNS.map((n, i) => `<div class="col-md-3 col-sm-6 col-xs-6"${rv(i % 4)}><figure class="fh-poster compact">${mlink(n, lang, mimg(n, lang, sizesFor('col-md-3 col-sm-6 col-xs-6')))}</figure></div>`).join('\n')}
-		</div>
-	</div>
-</section>
+${campaignsSection(lang)}
 
 ${ctaBand(lang)}` + footer(lang);
 }
@@ -702,8 +735,25 @@ ${slides}
 ${ctaBand(lang, true)}` + footer(lang);
 }
 
+function pagePrivacy(lang) {
+	const t = T[lang], p = t.legal.privacy;
+	const jsonld = { '@context': 'https://schema.org', '@graph': [{ '@type': 'WebPage', url: urlOf('privacy', lang), name: t.meta.privacy.title, inLanguage: lang, about: { '@id': `${SITE}/#organization` } }, breadcrumb('privacy', lang)] };
+	const blocks = p.sections.map(([h, parts]) => `<h2>${esc(h)}</h2>` + parts.map((x) => Array.isArray(x) ? `<ul>${x[1].map((li) => `<li>${esc(li)}</li>`).join('')}</ul>` : `<p>${esc(x)}</p>`).join('')).join('\n\t\t\t');
+	return head('privacy', lang, { jsonld }) + header('privacy', lang) + pageTitle('privacy', lang, p.title) + `
+<section class="fh-section">
+	<div class="auto-container">
+		<article class="fh-article fh-legal">
+			<p class="fh-legal-meta">${esc(p.updated)}</p>
+			<p>${esc(p.intro)}</p>
+			${blocks}
+		</article>
+	</div>
+</section>
+` + footer(lang);
+}
+
 /* ------------------------------------------------------------------ emit */
-const builders = { index: pageIndex, 'about-us': pageAbout, services: pageServices, projects: pageProjects, team: pageTeam, insights: pageInsights, faqs: pageFaqs, contact: pageContact };
+const builders = { index: pageIndex, 'about-us': pageAbout, services: pageServices, projects: pageProjects, team: pageTeam, insights: pageInsights, faqs: pageFaqs, contact: pageContact, privacy: pagePrivacy };
 function write(rel, content) {
 	const full = join(ROOT, rel);
 	mkdirSync(dirname(full), { recursive: true });
@@ -711,14 +761,14 @@ function write(rel, content) {
 	console.log('wrote', rel);
 }
 
-for (const lang of ['en', 'ar']) for (const p of PAGES) write(fileOf(p, lang), builders[p](lang));
+for (const lang of ['en', 'ar']) for (const p of ALL_PAGES) write(fileOf(p, lang), builders[p](lang));
 write('404.html', page404());
 /* Browsers and crawlers request /favicon.ico by default: keep a copy at the site root (source: images/brand/favicon.ico) */
 copyFileSync(join(ROOT, 'images/brand/favicon.ico'), join(ROOT, 'favicon.ico'));
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${['en', 'ar'].flatMap((lang) => PAGES.map((p) => `	<url>
+${['en', 'ar'].flatMap((lang) => ALL_PAGES.map((p) => `	<url>
 		<loc>${urlOf(p, lang)}</loc>
 		<lastmod>${TODAY}</lastmod>
 ${['en', 'ar'].map((l) => `		<xhtml:link rel="alternate" hreflang="${l}" href="${urlOf(p, l)}"/>`).join('\n')}

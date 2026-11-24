@@ -153,6 +153,7 @@
 
 	function deliver(d) {
 		var endpoint = form.getAttribute('data-endpoint');
+		if (window.fhTrack) { window.fhTrack('contact_form_submit', { method: endpoint ? 'endpoint' : 'whatsapp', form_language: lang }); }   // consent.js: no-op unless analytics was accepted
 		if (endpoint) {
 			submitBtn.disabled = true;
 			fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })

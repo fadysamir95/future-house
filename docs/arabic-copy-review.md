@@ -31,6 +31,7 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `nav.insights` | Insights | مقالات ونصائح | |
 | `nav.faqs` | FAQs | الأسئلة الشائعة | |
 | `nav.contact` | Contact | تواصل معنا | |
+| `nav.privacy` | Privacy & Cookies | الخصوصية وملفات تعريف الارتباط | |
 | `menuOpen` | Open menu | فتح القائمة | |
 | `menuClose` | Close menu | إغلاق القائمة | |
 | `mainNav` | Main navigation | القائمة الرئيسية | |
@@ -43,6 +44,8 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `emailLabel` | Email | البريد الإلكتروني | |
 | `addrLabel` | Address | العنوان | |
 | `waGreeting` | Hello Future House, I would like to ask about a property. | مرحباً فيوتشر هاوس، أود الاستفسار عن عقار. | |
+| `meta.privacy.title` | Privacy & Cookies | Future House | الخصوصية وملفات تعريف الارتباط | فيوتشر هاوس | |
+| `meta.privacy.desc` | How Future House handles your information: what the website collects, how analytics cookies work, and how to accept, reject or change your choice. | كيف تتعامل فيوتشر هاوس مع معلوماتك: ما يجمعه الموقع، وكيف تعمل ملفات تعريف الارتباط التحليلية، وكيفية قبول اختيارك أو رفضه أو تغييره. | |
 | `meta.projects.title` | Featured Developments | Future House Real Estate Marketing | المشروعات المميزة | فيوتشر هاوس للتسويق العقاري | |
 | `meta.projects.desc` | Developments marketed by Future House, including Sarai, El Patio Oro, Creeks, Alex West and more. Contact us for current offers. | مشروعات تسوّقها فيوتشر هاوس، منها سراي وإل باتيو أورو وكريكس وأليكس ويست وغيرها. تواصل معنا لمعرفة العروض الحالية. | |
 | `meta.team.title` | Our Team | Future House Real Estate Marketing & Brokerage | فريقنا | فيوتشر هاوس للتسويق والسمسرة العقارية | |
@@ -239,12 +242,39 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `pages2.home.h2` | Featured developments | مشروعات مميزة | |
 | `pages2.home.p` | Campaign posters for some of the developments we promote. Contact us for current offers. | ملصقات حملات لبعض المشروعات التي نروّج لها. تواصل معنا لمعرفة العروض الحالية. | |
 | `pages2.home.all` | View all developments | عرض جميع المشروعات | |
+| `pages2.home.carousel` | Featured developments, swipe sideways to see more | المشروعات المميزة، اسحب جانبياً لعرض المزيد | |
 | `pages2.about.journeyH` | Our people and our journey | فريقنا ومسيرتنا | |
 | `pages2.about.journeyP` | Future House started in 2019 with a vision and has grown into a team of property advisors and consultants. Meet some of them on our team page. | بدأت فيوتشر هاوس عام 2019 برؤية، وتحوّلت إلى فريق من المستشارين والاستشاريين العقاريين. تعرّف على بعضهم في صفحة فريقنا. | |
 | `pages2.about.teamLink` | Meet our team | تعرّف على فريقنا | |
 | `pages2.about.collageCap` | From our company anniversary celebration | من احتفال الذكرى السنوية للشركة | |
 | `pages2.about.campH` | From our campaigns | من حملاتنا | |
 | `pages2.about.campP` | Artwork from Future House brand campaigns published on our social channels. These are creative visuals, not specific projects. | أعمال فنية من حملات فيوتشر هاوس المنشورة على قنواتنا في وسائل التواصل. هذه مواد إبداعية وليست مشروعات بعينها. | |
+| `legal.consent.region` | Cookie preferences | تفضيلات ملفات تعريف الارتباط | |
+| `legal.consent.text` | We use analytics cookies to understand how visitors use our website and to improve it. They only run if you accept, and you can change your choice at any time. | نستخدم ملفات تعريف الارتباط التحليلية لفهم كيفية استخدام الزوار لموقعنا وتحسينه. لا تعمل إلا إذا وافقت، ويمكنك تغيير اختيارك في أي وقت. | |
+| `legal.consent.accept` | Accept | قبول | |
+| `legal.consent.reject` | Reject | رفض | |
+| `legal.consent.policy` | Privacy & cookies | الخصوصية وملفات تعريف الارتباط | |
+| `legal.footer.privacy` | Privacy & cookies | الخصوصية وملفات تعريف الارتباط | |
+| `legal.footer.settings` | Cookie settings | إعدادات ملفات تعريف الارتباط | |
+| `legal.privacy.title` | Privacy & Cookies | الخصوصية وملفات تعريف الارتباط | |
+| `legal.privacy.updated` | Last updated: 24 November 2026 | آخر تحديث: 24 نوفمبر 2026 | |
+| `legal.privacy.intro` | This notice explains what this website collects, how analytics cookies work, and the choices you have. | يوضح هذا الإشعار ما الذي يجمعه هذا الموقع، وكيف تعمل ملفات تعريف الارتباط التحليلية، والخيارات المتاحة لك. | |
+| `legal.privacy.sections[0][0]` | Who we are | من نحن | |
+| `legal.privacy.sections[0][1]` | This website is operated by Future House, a real estate marketing and brokerage company based at Roushdy, Abu Qir, Building 405 B, Alexandria, Egypt. For any privacy question, contact us at info@futurehouseegy.com or +20 155 338 2233. | يُدير هذا الموقع شركة فيوتشر هاوس، شركة تسويق وسمسرة عقارية، ومقرها رشدي، أبو قير، مبنى 405 ب، الإسكندرية، مصر. لأي استفسار عن الخصوصية، تواصل معنا على info@futurehouseegy.com أو على الرقم +20 155 338 2233. | |
+| `legal.privacy.sections[1][0]` | What information we collect | ما المعلومات التي نجمعها | |
+| `legal.privacy.sections[1][1]` | list,Messages you send us. The contact form does not store anything on this website. When you submit it, WhatsApp opens with your message ready to send, and what you send is handled by WhatsApp. If you call, message or email us, we receive the details you choose to share.,Website analytics, only if you accept. With your consent we use Google Tag Manager and Google Analytics to count visits and understand which pages and links are used, for example clicks on WhatsApp, phone and email links. This includes pages viewed, approximate location, and device and browser type. We do not use advertising cookies. | list,الرسائل التي ترسلها إلينا. لا يحفظ نموذج التواصل أي بيانات على هذا الموقع. عند إرساله يُفتح واتساب برسالتك جاهزة للإرسال، ويتولى واتساب معالجة ما ترسله. وإذا اتصلت بنا أو راسلتنا أو أرسلت لنا بريداً إلكترونياً، نتلقى البيانات التي تختار مشاركتها.,تحليلات الموقع، فقط إذا وافقت. بموافقتك نستخدم Google Tag Manager وGoogle Analytics لإحصاء الزيارات وفهم الصفحات والروابط المستخدمة، مثل النقر على روابط واتساب والهاتف والبريد الإلكتروني. ويشمل ذلك الصفحات التي تمت زيارتها والموقع التقريبي ونوع الجهاز والمتصفح. لا نستخدم ملفات تعريف ارتباط إعلانية. | |
+| `legal.privacy.sections[2][0]` | Cookies and similar storage | ملفات تعريف الارتباط والتخزين المشابه | |
+| `legal.privacy.sections[2][1]` | list,Your choice (fh_consent): stored in your browser to remember whether you accepted or rejected analytics. It is not sent to us or to anyone else.,Analytics cookies (_ga and _ga_*): set by Google Analytics only after you accept, to tell visitors apart and measure visits.,If you reject, or have not made a choice, Google Tag Manager and Google Analytics are not loaded and no analytics cookies are set. | list,اختيارك (fh_consent): يُحفظ في متصفحك لتذكّر قبولك أو رفضك للتحليلات. ولا يُرسل إلينا ولا إلى أي جهة أخرى.,ملفات التحليلات (_ga و _ga_*): يضعها Google Analytics فقط بعد موافقتك، للتمييز بين الزوار وقياس الزيارات.,إذا رفضت أو لم تختر، لا يتم تحميل Google Tag Manager وGoogle Analytics ولا تُوضع أي ملفات تعريف ارتباط تحليلية. | |
+| `legal.privacy.sections[3][0]` | Your choices | خياراتك | |
+| `legal.privacy.sections[3][1]` | You can accept or reject analytics when you first visit, and change your mind at any time using "Cookie settings" at the bottom of every page. Rejecting does not affect how you can use the website. You can also delete cookies in your browser settings. | يمكنك قبول التحليلات أو رفضها عند زيارتك الأولى، وتغيير رأيك في أي وقت من خلال «إعدادات ملفات تعريف الارتباط» أسفل كل صفحة. ولا يؤثر الرفض على استخدامك للموقع. ويمكنك أيضاً حذف ملفات تعريف الارتباط من إعدادات متصفحك. | |
+| `legal.privacy.sections[4][0]` | Third parties | الأطراف الثالثة | |
+| `legal.privacy.sections[4][1]` | Google (Tag Manager and Analytics, only after you accept) and WhatsApp (when you choose to message us). Links to our social media pages, Google Maps and other websites lead to services with their own privacy policies. The fonts and images on this website are hosted on our own site. | Google (‏Tag Manager وAnalytics، فقط بعد موافقتك) وواتساب (عندما تختار مراسلتنا). تؤدي الروابط إلى صفحاتنا على وسائل التواصل وخرائط جوجل ومواقع أخرى إلى خدمات لها سياسات خصوصية خاصة بها. أما الخطوط والصور في هذا الموقع فتُستضاف على موقعنا نفسه. | |
+| `legal.privacy.sections[5][0]` | How long we keep data | مدة الاحتفاظ بالبيانات | |
+| `legal.privacy.sections[5][1]` | Analytics data is kept for the period configured in our Google Analytics account. Messages you send us are kept only as long as needed to reply to you and for our business records. | تُحفظ بيانات التحليلات للمدة المضبوطة في حساب Google Analytics الخاص بنا. وتُحفظ الرسائل التي ترسلها إلينا للمدة اللازمة فقط للرد عليك ولسجلات عملنا. | |
+| `legal.privacy.sections[6][0]` | Your rights | حقوقك | |
+| `legal.privacy.sections[6][1]` | Under applicable data protection law, including Egypt's Personal Data Protection Law (Law No. 151 of 2020), you may ask to access, correct or delete your personal data, or object to how it is used. Contact us at info@futurehouseegy.com. | وفقاً لقوانين حماية البيانات المعمول بها، ومنها قانون حماية البيانات الشخصية المصري (القانون رقم 151 لسنة 2020)، يحق لك طلب الاطلاع على بياناتك الشخصية أو تصحيحها أو حذفها، أو الاعتراض على طريقة استخدامها. تواصل معنا على info@futurehouseegy.com. | |
+| `legal.privacy.sections[7][0]` | Changes to this notice | تعديلات هذا الإشعار | |
+| `legal.privacy.sections[7][1]` | We may update this notice from time to time. The date at the top shows when it was last changed. | قد نُحدّث هذا الإشعار من وقت لآخر. يوضح التاريخ في أعلاه آخر تعديل. | |
 | `formMsg.required` | This field is required. | هذا الحقل مطلوب. | |
 | `formMsg.email` | Please enter a valid email address. | يرجى إدخال بريد إلكتروني صحيح. | |
 | `formMsg.phone` | Please enter a valid phone number. | يرجى إدخال رقم هاتف صحيح. | |
