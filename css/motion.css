@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Future House – motion layer
+   Premium, minimal, GPU-friendly: only opacity/transform-type properties,
+   no layout-affecting animation. Uses the individual `translate` / `scale`
+   properties so entrance effects never fight hover `transform`s.
+   Scroll reveals only exist under html.js, so content is always visible
+   without JavaScript. Everything is disabled under prefers-reduced-motion.
+   Direction-aware: --dir is 1 (LTR) / -1 (RTL).
+   ========================================================================== */
+
+:root {
+	--fh-ease: cubic-bezier(.22, .61, .36, 1);
+	--fh-ease-soft: cubic-bezier(.33, 1, .68, 1);
+	--fh-dur: .7s;
+	--dir: 1;
+}
+html[dir="rtl"] { --dir: -1; }
+
+/* ---------- Hero: staged entrance ---------- */
+
+@keyframes fh-rise   { from { opacity: 0; translate: 0 26px; } to { opacity: 1; translate: 0 0; } }
+@keyframes fh-settle { from { scale: 1.08; } to { scale: 1; } }
+@keyframes fh-veil   { from { opacity: 1; } to { opacity: 0; } }
+
+.hero { overflow: hidden; }
+
+/* Taller than the hero so the parallax shift (max 80px) never exposes an edge */
+.hero-bg {
+	position: absolute; left: 0; top: -80px; width: 100%; height: calc(100% + 80px);
+	object-fit: cover; z-index: -2;
+	translate: 0 var(--py, 0px);
+	animation: fh-settle 1.9s var(--fh-ease-soft) both;
+}
+/* Dark-green curtain that lifts to reveal the photograph */
+.hero::after {
+	content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+	background: var(--fh-green);
+	animation: fh-veil 1s .1s var(--fh-ease-soft) forwards;
+}
+.hero .eyebrow   { animation: fh-rise .9s .30s var(--fh-ease) both; }
+.hero h1         { animation: fh-rise .9s .45s var(--fh-ease) both; }
+.hero .lead-text { animation: fh-rise .9s .60s var(--fh-ease) both; }
+.hero .actions .theme-btn { animation: fh-rise .8s .80s var(--fh-ease) both; }
+.hero .actions .theme-btn:nth-child(2) { animation-delay: .92s; }
+.hero .illustrative-tag { animation: fh-rise .8s 1.1s var(--fh-ease) both; }
+
+/* ---------- Scroll reveals ---------- */
+
+.js [data-reveal] {
+	opacity: 0; translate: 0 28px;
+	transition: opacity var(--fh-dur) var(--fh-ease), translate var(--fh-dur) var(--fh-ease);
+	transition-delay: calc(var(--i, 0) * 90ms);
+	will-change: opacity, translate;
+}
+.js [data-reveal="inline-start"] { translate: calc(var(--dir) * -34px) 0; }
+.js [data-reveal].is-visible { opacity: 1; translate: 0 0; will-change: auto; }
+
+/* ---------- Cards & images ---------- */
+
+.service-block-two .inner-box,
+.fh-card {
+	transition: transform .45s var(--fh-ease), box-shadow .45s var(--fh-ease), border-color .45s var(--fh-ease);
+}
+.service-block-two .inner-box { overflow: hidden; }
+.service-block-two .inner-box:hover,
+.service-block-two .inner-box:focus-within,
+.fh-card:hover,
+.fh-card:focus-within {
+	transform: translateY(-6px);
+	box-shadow: 0 18px 40px rgba(10, 49, 44, .16);
+}
+.fh-card:hover, .fh-card:focus-within { border-color: var(--fh-ecru); }
+
+/* Image zoom on hover */
+.service-block-two .inner-box .image-layer {
+	transition: opacity .5s ease, transform 1.2s var(--fh-ease);
+	transform-origin: center;
+}
+.service-block-two .inner-box:hover .image-layer { transform: scale(1.08); }
+.service-block-two .inner-box .icon-box { transition: background-color .4s ease, color .4s ease; }
+
+.fh-figure img { transition: transform 1.4s var(--fh-ease); }
+.fh-figure:hover img { transform: scale(1.05); }
+
+.fh-card .icon { transition: transform .45s var(--fh-ease), background-color .3s ease, color .3s ease; }
+.fh-card:hover .icon { transform: scale(1.08); background: var(--fh-green-600); }
+.fh-card a.more { background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; text-decoration: none; transition: background-size .4s var(--fh-ease); padding-bottom: 2px; }
+.fh-card a.more:hover, .fh-card a.more:focus-visible { background-size: 100% 2px; }
+
+/* ---------- Buttons & links ---------- */
+
+.theme-btn,
+.btn-outline-light,
+.btn-ecru {
+	transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .35s var(--fh-ease), box-shadow .35s var(--fh-ease);
+}
+.theme-btn:hover,
+.theme-btn:focus-visible,
+.btn-outline-light:hover,
+.btn-outline-light:focus-visible {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 22px rgba(0, 0, 0, .2);
+}
+.theme-btn:active, .btn-outline-light:active { transform: translateY(0); box-shadow: none; transition-duration: .1s; }
+
+.fh-contact-list a, .fh-faq .answer a, .main-footer .fh-foot-links a, .main-footer .contact-info li a { transition: color .25s ease, text-decoration-color .25s ease; }
+.main-footer .fh-foot-links a { display: inline-block; transition: color .25s ease, transform .3s var(--fh-ease); }
+.main-footer .fh-foot-links a:hover { transform: translateX(calc(var(--dir) * 4px)); }
+
+.fh-faq summary { transition: color .25s ease, background-color .25s ease; }
+.fh-faq summary:hover { background: var(--fh-ecru-100); }
+.fh-faq summary::after { transition: transform .35s var(--fh-ease), background-color .25s ease; }
+.fh-faq details[open] summary::after { transform: translateY(-50%) rotate(180deg); }
+.fh-faq details[open] .answer { animation: fh-rise .45s var(--fh-ease) both; }
+
+/* ---------- Navigation ---------- */
+
+.main-menu .navigation > li > a:not(.lang-switch)::after {
+	content: ""; position: absolute; inset-inline: 13px; bottom: 3px; height: 2px;
+	background: var(--fh-ecru); scale: 0 1; transform-origin: center;
+	transition: scale .4s var(--fh-ease);
+}
+.main-menu .navigation > li > a:not(.lang-switch):hover::after,
+.main-menu .navigation > li > a:not(.lang-switch):focus-visible::after,
+.main-menu .navigation > li.current > a:not(.lang-switch)::after { scale: 1 1; }
+.main-menu .navigation > li > a { transition: color .3s ease, background-color .3s ease, border-color .3s ease; }
+.fh-menu-btn { transition: background-color .25s ease, color .25s ease, transform .3s var(--fh-ease); }
+.fh-menu-btn:hover { background: var(--fh-green); color: #fff; }
+.fh-menu-btn:active { transform: scale(.95); }
+.fh-menu-btn .fa { display: inline-block; transition: transform .35s var(--fh-ease); }
+.fh-menu-btn[aria-expanded="true"] .fa { transform: rotate(90deg); }
+
+/* Mobile menu: slide + fade, items stagger in. visibility keeps closed links out of tab order. */
+@media only screen and (max-width: 1023px) {
+	.main-header .nav-outer {
+		display: block; visibility: hidden; opacity: 0; translate: 0 -10px; pointer-events: none;
+		transition: opacity .3s var(--fh-ease), translate .35s var(--fh-ease), visibility 0s linear .35s;
+	}
+	.main-header .nav-outer .main-menu { display: block; }
+	.main-header.fh-menu-open .nav-outer {
+		visibility: visible; opacity: 1; translate: 0 0; pointer-events: auto;
+		transition-delay: 0s;
+	}
+	.main-menu .navigation > li { opacity: 0; translate: 0 -8px; transition: opacity .35s var(--fh-ease), translate .35s var(--fh-ease); }
+	.fh-menu-open .main-menu .navigation > li { opacity: 1; translate: 0 0; }
+	.fh-menu-open .main-menu .navigation > li:nth-child(1) { transition-delay: .06s; }
+	.fh-menu-open .main-menu .navigation > li:nth-child(2) { transition-delay: .10s; }
+	.fh-menu-open .main-menu .navigation > li:nth-child(3) { transition-delay: .14s; }
+	.fh-menu-open .main-menu .navigation > li:nth-child(4) { transition-delay: .18s; }
+	.fh-menu-open .main-menu .navigation > li:nth-child(5) { transition-delay: .22s; }
+	.fh-menu-open .main-menu .navigation > li:nth-child(6) { transition-delay: .26s; }
+	.main-menu .navigation > li > a:not(.lang-switch)::after { inset-inline: 20px; bottom: 6px; }
+}
+
+/* ---------- Social icons ---------- */
+
+.fh-social a { transition: transform .35s var(--fh-ease), background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .35s var(--fh-ease); }
+.fh-social a svg { transition: scale .35s var(--fh-ease); }
+.fh-social a:hover, .fh-social a:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0, 0, 0, .22); }
+.fh-social a:hover svg, .fh-social a:focus-visible svg { scale: 1.14; }
+
+/* ---------- Scroll-to-top ---------- */
+
+.scroll-to-top {
+	display: block; opacity: 0; visibility: hidden; translate: 0 14px;
+	transition: opacity .35s ease, translate .35s var(--fh-ease), visibility 0s linear .35s, background-color .3s ease;
+	border: 0; padding: 0; background: var(--fh-green);
+}
+.scroll-to-top.is-visible { opacity: 1; visibility: visible; translate: 0 0; transition-delay: 0s; }
+.scroll-to-top:hover { background: var(--fh-ecru); color: var(--fh-green); }
+
+/* ---------- Reduced motion: no movement at all, colours still respond ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+	.js [data-reveal] { opacity: 1 !important; translate: none !important; transition: none !important; }
+	.hero-bg, .hero::before, .hero .eyebrow, .hero h1, .hero .lead-text, .hero .actions .theme-btn, .hero .illustrative-tag,
+	.fh-faq details[open] .answer { animation: none !important; }
+	.hero::after { display: none; }
+	.hero-bg { translate: none !important; scale: none !important; }
+	.service-block-two .inner-box:hover, .service-block-two .inner-box:focus-within, .fh-card:hover, .fh-card:focus-within,
+	.theme-btn:hover, .theme-btn:focus-visible, .btn-outline-light:hover, .fh-social a:hover, .fh-social a:focus-visible,
+	.main-footer .fh-foot-links a:hover { transform: none !important; }
+	.service-block-two .inner-box:hover .image-layer, .fh-figure:hover img, .fh-card:hover .icon, .fh-social a:hover svg { transform: none !important; scale: none !important; }
+	.main-header .nav-outer, .main-menu .navigation > li, .scroll-to-top { transition: none !important; translate: none !important; }
+}
