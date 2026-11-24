@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Future House – Arabic / RTL overrides (loaded only on /ar/ pages)
+   ========================================================================== */
+
+html[dir="rtl"] body,
+html[dir="rtl"] input,
+html[dir="rtl"] button,
+html[dir="rtl"] select,
+html[dir="rtl"] textarea,
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3,
+html[dir="rtl"] h4, html[dir="rtl"] h5, html[dir="rtl"] h6,
+html[dir="rtl"] .theme-btn,
+html[dir="rtl"] .fh-faq summary,
+html[dir="rtl"] .hero .eyebrow {
+	font-family: 'Cairo', 'Tahoma', sans-serif;
+}
+
+/* Arabic has no letter case and must not be letter-spaced */
+html[dir="rtl"] * { letter-spacing: 0 !important; }
+html[dir="rtl"] .hero h1,
+html[dir="rtl"] .hero .eyebrow,
+html[dir="rtl"] .fh-section-head h2,
+html[dir="rtl"] .fh-section-head .sub-title,
+html[dir="rtl"] .theme-btn,
+html[dir="rtl"] .btn-outline-light,
+html[dir="rtl"] .hero .btn-style-two,
+html[dir="rtl"] .main-menu .navigation > li > a,
+html[dir="rtl"] .fh-footer-title,
+html[dir="rtl"] .fh-footer-contact .lbl,
+html[dir="rtl"] .sec-title h2,
+html[dir="rtl"] .page-title h1,
+html[dir="rtl"] .call-to-action h2,
+html[dir="rtl"] .service-block-two .inner-box h3 { text-transform: none; }
+
+html[dir="rtl"] body { line-height: 1.9em; }
+html[dir="rtl"] .hero h1 { line-height: 1.5em; }
+html[dir="rtl"] .main-menu .navigation > li > a { font-size: 15px; }
+
+/* Bootstrap 3 grid + helpers */
+html[dir="rtl"] [class*="col-xs-"],
+html[dir="rtl"] [class*="col-sm-"],
+html[dir="rtl"] [class*="col-md-"],
+html[dir="rtl"] [class*="col-lg-"] { float: right; }
+html[dir="rtl"] .pull-left { float: right !important; }
+html[dir="rtl"] .pull-right { float: left !important; }
+html[dir="rtl"] .text-left { text-align: right; }
+html[dir="rtl"] .text-right { text-align: left; }
+html[dir="rtl"] .fh-row-equal > [class*="col-"] { float: none; }
+
+/* Header */
+html[dir="rtl"] .main-header .main-box .outer-container { padding: 0 0 0 120px; }
+html[dir="rtl"] .main-header .main-box .logo-box { float: right; text-align: right; }
+html[dir="rtl"] .main-header .nav-outer { float: left; }
+html[dir="rtl"] .main-menu .navigation > li { margin: 0 0 0 2px; }
+html[dir="rtl"] .main-header .header-top .top-right { justify-content: flex-start; }
+html[dir="rtl"] .scroll-to-top { right: auto; left: 30px; }
+
+/* Hero */
+html[dir="rtl"] .hero::before {
+	background: linear-gradient(270deg, rgba(10, 49, 44, .88) 0%, rgba(10, 49, 44, .62) 55%, rgba(10, 49, 44, .35) 100%);
+}
+html[dir="rtl"] .hero .auto-container { text-align: right; }
+
+/* Welcome / service blocks */
+html[dir="rtl"] .welcome-section .welcome-column .inner-content { margin-right: 0; margin-left: 50px; text-align: right; }
+html[dir="rtl"] .welcome-section .service-column { padding-left: 15px; padding-right: 30px; }
+html[dir="rtl"] .service-block-one .inner-box,
+html[dir="rtl"] .service-block-two .inner-box { text-align: right; }
+html[dir="rtl"] .service-block-two .inner-box .bottom-icon { right: auto; left: 20px; }
+
+/* Steps */
+html[dir="rtl"] .fh-steps li { padding: 0 70px 26px 0; }
+
+/* FAQ */
+html[dir="rtl"] .fh-faq summary { padding: 18px 22px 18px 56px; }
+
+/* Form / contact */
+html[dir="rtl"] .fh-form input[type="tel"],
+html[dir="rtl"] .fh-form input[type="email"] { direction: ltr; text-align: right; }
+html[dir="rtl"] .fh-form select { background-position: left 12px center; }
+.ltr-num { direction: ltr; unicode-bidi: embed; display: inline-block; }
+
+
+@media only screen and (max-width: 1023px) {
+	html[dir="rtl"] .fh-menu-btn { right: auto; left: 0; }
+	html[dir="rtl"] .main-header .main-box .outer-container { padding: 0 0 0 60px; }
+	html[dir="rtl"] .main-menu .navigation > li > a { text-align: right; }
+}
