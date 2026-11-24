@@ -62,7 +62,9 @@ html[dir="rtl"] .hero::before {
 html[dir="rtl"] .hero .auto-container { text-align: right; }
 
 /* Welcome / service blocks */
-html[dir="rtl"] .welcome-section .welcome-column .inner-content { margin-right: 0; margin-left: 50px; text-align: right; }
+@media only screen and (min-width: 992px) {
+	html[dir="rtl"] .welcome-section .welcome-column .inner-content { margin-right: 0; margin-left: 50px; text-align: right; }
+}
 html[dir="rtl"] .welcome-section .service-column { padding-left: 15px; padding-right: 30px; }
 html[dir="rtl"] .service-block-one .inner-box,
 html[dir="rtl"] .service-block-two .inner-box { text-align: right; }

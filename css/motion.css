@@ -112,14 +112,7 @@ html[dir="rtl"] { --dir: -1; }
 
 /* ---------- Navigation ---------- */
 
-.main-menu .navigation > li > a:not(.lang-switch)::after {
-	content: ""; position: absolute; inset-inline: 13px; bottom: 3px; height: 2px;
-	background: var(--fh-ecru); scale: 0 1; transform-origin: center;
-	transition: scale .4s var(--fh-ease);
-}
-.main-menu .navigation > li > a:not(.lang-switch):hover::after,
-.main-menu .navigation > li > a:not(.lang-switch):focus-visible::after,
-.main-menu .navigation > li.current > a:not(.lang-switch)::after { scale: 1 1; }
+/* Active/hover state is the brand-green background only (no underline or other indicator). */
 .main-menu .navigation > li > a { transition: color .3s ease, background-color .3s ease, border-color .3s ease; }
 .fh-menu-btn { transition: background-color .25s ease, color .25s ease, transform .3s var(--fh-ease); }
 .fh-menu-btn:hover { background: var(--fh-green); color: #fff; }
@@ -145,8 +138,7 @@ html[dir="rtl"] { --dir: -1; }
 	.fh-menu-open .main-menu .navigation > li:nth-child(3) { transition-delay: .14s; }
 	.fh-menu-open .main-menu .navigation > li:nth-child(4) { transition-delay: .18s; }
 	.fh-menu-open .main-menu .navigation > li:nth-child(5) { transition-delay: .22s; }
-	.fh-menu-open .main-menu .navigation > li:nth-child(6) { transition-delay: .26s; }
-	.main-menu .navigation > li > a:not(.lang-switch)::after { inset-inline: 20px; bottom: 6px; }
+	.fh-menu-open .main-menu .navigation > li:nth-child(6) { transition-delay: .26s; }
 }
 
 /* ---------- Social icons ---------- */

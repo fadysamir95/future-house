@@ -1,0 +1,610 @@
+{
+ "sarai-compound-new-cairo-madinet-masr": {
+  "folder": "projects",
+  "source": "fb_043.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 77798
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 172258
+   }
+  }
+ },
+ "el-patio-oro-new-cairo-la-vista": {
+  "folder": "projects",
+  "source": "fb_041.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 65734
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 144662
+   }
+  }
+ },
+ "creeks-mmg-lagoon-villas": {
+  "folder": "projects",
+  "source": "fb_024.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 89600
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 207610
+   }
+  }
+ },
+ "waterfront-towers-night-view": {
+  "folder": "projects",
+  "source": "fb_023.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 123714
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 271362
+   }
+  }
+ },
+ "alex-west-residential-complex": {
+  "folder": "projects",
+  "source": "fb_052.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 640,
+    "bytes": 73308
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1080,
+    "bytes": 155866
+   }
+  }
+ },
+ "masaya-sidi-abdel-rahman-villa": {
+  "folder": "projects",
+  "source": "fb_064.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 56660
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 132390
+   }
+  }
+ },
+ "muruj-residential-tower": {
+  "folder": "projects",
+  "source": "fb_010.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 799,
+    "bytes": 69116
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1349,
+    "bytes": 131972
+   }
+  }
+ },
+ "seashore-water-side-apartments": {
+  "folder": "projects",
+  "source": "fb_062.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 59110
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 140690
+   }
+  }
+ },
+ "rivers-ras-el-hekma-unit-types": {
+  "folder": "projects",
+  "source": "fb_050.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 640,
+    "bytes": 64908
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1080,
+    "bytes": 138030
+   }
+  }
+ },
+ "future-house-team-anniversary-collage": {
+  "folder": "marketing",
+  "source": "fb_018.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 89696
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 210606
+   }
+  }
+ },
+ "brand-campaign-building-better-futures": {
+  "folder": "marketing",
+  "source": "fb_004.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 799,
+    "bytes": 53358
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1349,
+    "bytes": 104394
+   }
+  }
+ },
+ "brand-campaign-more-than-a-property": {
+  "folder": "marketing",
+  "source": "fb_006.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 799,
+    "bytes": 72066
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1349,
+    "bytes": 147470
+   }
+  }
+ },
+ "brand-campaign-built-on-trust": {
+  "folder": "marketing",
+  "source": "fb_007.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 799,
+    "bytes": 14442
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1349,
+    "bytes": 30046
+   }
+  }
+ },
+ "brand-campaign-find-your-place": {
+  "folder": "marketing",
+  "source": "fb_008.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 799,
+    "bytes": 61528
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1349,
+    "bytes": 120664
+   }
+  }
+ },
+ "top-performers-q2-2026-announcement": {
+  "folder": "achievements",
+  "source": "fb_030.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 72764
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 172862
+   }
+  }
+ },
+ "top-performer-rank-1-asma-abdo": {
+  "folder": "achievements",
+  "source": "fb_028.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 51098
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 93382
+   }
+  }
+ },
+ "top-performer-rank-2-ahmed-mahmoud": {
+  "folder": "achievements",
+  "source": "fb_029.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 50606
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 101008
+   }
+  }
+ },
+ "top-performer-rank-3-neven-wahdan": {
+  "folder": "achievements",
+  "source": "fb_027.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 45842
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 97000
+   }
+  }
+ },
+ "top-performer-rank-4-mohamed-essam": {
+  "folder": "achievements",
+  "source": "fb_026.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 35890
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 78420
+   }
+  }
+ },
+ "top-performer-rank-5-zeinab-ali": {
+  "folder": "achievements",
+  "source": "fb_025.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 39426
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 88938
+   }
+  }
+ },
+ "best-employee-august-2025-passant-elkady": {
+  "folder": "achievements",
+  "source": "fb_067.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 640,
+    "bytes": 31744
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1080,
+    "bytes": 55956
+   }
+  }
+ },
+ "promotion-hala-hossam-property-advisor": {
+  "folder": "team",
+  "source": "fb_087.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 56012
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 113104
+   }
+  }
+ },
+ "promotion-yasser-osama-property-advisor": {
+  "folder": "team",
+  "source": "fb_088.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 89024
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 202342
+   }
+  }
+ },
+ "promotion-zienb-ali-property-advisor": {
+  "folder": "team",
+  "source": "fb_095.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 49916
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 102388
+   }
+  }
+ },
+ "promotion-abdallah-tarek-property-consultant": {
+  "folder": "team",
+  "source": "fb_089.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 53872
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 103134
+   }
+  }
+ },
+ "promotion-habiba-osama-property-consultant": {
+  "folder": "team",
+  "source": "fb_091.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 94898
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 197362
+   }
+  }
+ },
+ "promotion-malak-abdalkader-property-consultant": {
+  "folder": "team",
+  "source": "fb_092.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 55724
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 112324
+   }
+  }
+ },
+ "promotion-passant-elkady-property-consultant": {
+  "folder": "team",
+  "source": "fb_093.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 51230
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 103944
+   }
+  }
+ },
+ "promotion-mahmoud-abdrabo-property-consultant": {
+  "folder": "team",
+  "source": "fb_094.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 56268
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 108720
+   }
+  }
+ },
+ "promotion-yahia-badawy-property-consultant": {
+  "folder": "team",
+  "source": "fb_096.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 53194
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 107396
+   }
+  }
+ },
+ "promotion-adham-el-kady-senior-property-consultant": {
+  "folder": "team",
+  "source": "fb_090.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 49480
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 99278
+   }
+  }
+ },
+ "promotion-amr-adel-senior-property-consultant": {
+  "folder": "team",
+  "source": "fb_097.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 64378
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 135544
+   }
+  }
+ },
+ "five-keys-property-investment-cover": {
+  "folder": "insights",
+  "source": "fb_077.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 33560
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 66594
+   }
+  }
+ },
+ "property-investment-key-1-timing": {
+  "folder": "insights",
+  "source": "fb_081.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 44820
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 85428
+   }
+  }
+ },
+ "property-investment-key-2-location": {
+  "folder": "insights",
+  "source": "fb_083.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 47038
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 89410
+   }
+  }
+ },
+ "property-investment-key-3-quality": {
+  "folder": "insights",
+  "source": "fb_078.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 42034
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 79052
+   }
+  }
+ },
+ "property-investment-key-4-price-and-deal": {
+  "folder": "insights",
+  "source": "fb_079.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 53768
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 106482
+   }
+  }
+ },
+ "property-investment-key-5-risk": {
+  "folder": "insights",
+  "source": "fb_082.jpg",
+  "sizes": {
+   "640": {
+    "w": 640,
+    "h": 800,
+    "bytes": 48702
+   },
+   "1080": {
+    "w": 1080,
+    "h": 1350,
+    "bytes": 93232
+   }
+  }
+ }
+}

@@ -469,3 +469,150 @@ a:hover > .fh-ul, a:focus-visible > .fh-ul, a.fh-ul:hover, a.fh-ul:focus-visible
 	.fh-footer-main { padding: 96px 0 76px; }
 	.fh-footer-grid { gap: 80px; }
 }
+
+/* ==========================================================================
+   Welcome / introduction block (below the hero)
+   Headings (all widths): "Welcome to Future House" is a small eyebrow with an ecru
+   accent line; "Your Future House is our mission" is the primary heading.
+   <1200px: rounded card + controlled measure. <992px: single centred column with an
+   intentional overlap onto the hero. >=1200px keeps the original card geometry.
+   ========================================================================== */
+
+.welcome-section .welcome-column .inner-content h2 {
+	display: flex; align-items: center; gap: 14px;
+	margin: 0 0 18px; padding: 0;
+	font: 700 13px/1.4 var(--fh-font-head); letter-spacing: .2em; text-transform: uppercase; color: var(--fh-ecru);
+}
+/* template draws two absolute dark hairlines on this h2; replace with one ecru accent line */
+.welcome-section .welcome-column .inner-content h2::before {
+	content: ""; position: static; left: auto; bottom: auto; flex: none;
+	display: block; width: 34px; height: 2px; background: var(--fh-ecru);
+}
+.welcome-section .welcome-column .inner-content h2::after { display: none; }
+.welcome-section .welcome-column .inner-content h3 {
+	margin: 0 0 22px; color: #fff;
+	font-size: clamp(26px, 3.6vw, 34px); line-height: 1.25; font-weight: 700; letter-spacing: -.005em; text-wrap: balance;
+}
+html[dir="rtl"] .welcome-section .welcome-column .inner-content h2 { font-size: 15px; text-transform: none; }
+html[dir="rtl"] .welcome-section .welcome-column .inner-content h3 { line-height: 1.5; }
+
+@media only screen and (max-width: 1199px) {
+	.welcome-section .welcome-column .inner-content {
+		border-radius: 16px;
+		padding: 52px 44px 56px;
+		box-shadow: 0 30px 60px -30px rgba(4, 22, 19, .65);
+	}
+	.welcome-section .welcome-column .inner-content .text { font-size: 16.5px; line-height: 1.85; max-width: 58ch; margin-bottom: 34px; }
+	.welcome-section .welcome-column .inner-content .theme-btn { min-height: 52px; padding: 14px 34px; font-weight: 700; letter-spacing: .02em; }
+}
+@media only screen and (max-width: 991px) {
+	.welcome-section .welcome-column .inner-content,
+	html[dir="rtl"] .welcome-section .welcome-column .inner-content {
+		width: min(100%, 760px); margin: -56px auto 0; text-align: center;
+		padding: 56px clamp(28px, 7vw, 72px) 60px;
+	}
+	/* centred layout: accent lines on both sides of the eyebrow */
+	.welcome-section .welcome-column .inner-content h2 { justify-content: center; }
+	.welcome-section .welcome-column .inner-content h2::after {
+		content: ""; position: static; left: auto; bottom: auto; flex: none;
+		display: block; width: 34px; height: 2px; background: var(--fh-ecru);
+	}
+	.welcome-section .welcome-column .inner-content .text { margin-inline: auto; }
+	.welcome-section .service-column,
+	html[dir="rtl"] .welcome-section .service-column { padding: 54px 15px 0; }
+}
+@media only screen and (max-width: 575px) {
+	.welcome-section .welcome-column .inner-content,
+	html[dir="rtl"] .welcome-section .welcome-column .inner-content { margin-top: -40px; padding: 40px 24px 44px; border-radius: 12px; }
+	.welcome-section .welcome-column .inner-content h2 { gap: 10px; font-size: 12px; }
+	html[dir="rtl"] .welcome-section .welcome-column .inner-content h2 { font-size: 14px; }
+	.welcome-section .welcome-column .inner-content h2::before, .welcome-section .welcome-column .inner-content h2::after { width: 24px; }
+	.welcome-section .welcome-column .inner-content .text { font-size: 16px; line-height: 1.8; }
+	.welcome-section .welcome-column .inner-content .theme-btn { width: 100%; }
+}
+
+/* ==========================================================================
+   Social-media image library: poster cards, people cards, articles
+   (same hover language as the other cards: lift + soft shadow + image zoom)
+   ========================================================================== */
+
+.fh-poster {
+	margin: 0 0 30px; width: 100%; display: flex; flex-direction: column; overflow: hidden;
+	background: #fff; border: 1px solid var(--fh-line); border-radius: var(--fh-radius);
+	transition: transform .45s var(--fh-ease, ease), box-shadow .45s var(--fh-ease, ease), border-color .45s var(--fh-ease, ease);
+}
+.fh-poster:hover, .fh-poster:focus-within { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(10, 49, 44, .16); border-color: var(--fh-ecru); }
+.fh-poster-img { display: block; overflow: hidden; background: var(--fh-green-100); }
+.fh-poster-img img { display: block; width: 100%; height: auto; transition: transform 1.2s var(--fh-ease, ease); }
+.fh-poster:hover .fh-poster-img img, .fh-poster:focus-within .fh-poster-img img { transform: scale(1.04); }
+.fh-poster figcaption { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.fh-poster h3 { margin: 0; font: 700 18px/1.35 var(--fh-font-head); color: var(--fh-green); }
+.fh-poster .meta { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--fh-muted); }
+.fh-poster.compact figcaption { padding: 12px 14px 14px; gap: 2px; }
+.fh-poster.compact h3 { font-size: 16px; }
+.fh-ask {
+	margin-top: auto; padding-top: 8px; min-height: 44px; display: inline-flex; align-items: center; gap: 8px;
+	font-weight: 700; color: var(--fh-green); text-decoration: underline; text-underline-offset: 3px;
+}
+.fh-ask:hover { color: var(--fh-green-600); }
+.fh-note { margin: 34px auto 0; max-width: 820px; text-align: center; font-size: 14px; line-height: 1.7; color: var(--fh-muted); }
+.fh-note.start { text-align: start; margin-inline: 0; }
+.fh-subhead { margin: 0 0 8px; text-align: center; font: 700 26px/1.3 var(--fh-font-head); color: var(--fh-green); }
+.fh-subp { margin: 0 auto 36px; max-width: 700px; text-align: center; color: var(--fh-muted); }
+
+.fh-photo { margin: 0 0 24px; }
+.fh-photo img { display: block; width: 100%; height: auto; border-radius: var(--fh-radius); }
+.fh-photo .fh-poster-img { border-radius: var(--fh-radius); }
+.fh-photo figcaption { margin-top: 10px; font-size: 14px; color: var(--fh-muted); }
+.fh-photo .fh-poster-img:hover img { transform: scale(1.03); }
+
+.fh-article { max-width: 760px; margin: 0 auto; }
+.fh-article h3 { margin: 0 0 14px; font: 700 28px/1.3 var(--fh-font-head); color: var(--fh-green); }
+.fh-article p { font-size: 17px; }
+.fh-steps-plain li { min-height: 48px; padding-top: 11px; }
+.fh-steps-plain li p { margin: 0; }
+.fh-article-outro { margin-top: 18px; padding-inline-start: 18px; border-inline-start: 3px solid var(--fh-ecru); color: var(--fh-ink); font-weight: 700; }
+.fh-keys { list-style: none; counter-reset: key; margin: 26px 0 8px; padding: 0; }
+.fh-keys li { counter-increment: key; position: relative; margin: 0; padding: 0 0 24px; padding-inline-start: 64px; }
+.fh-keys li::before {
+	content: counter(key); position: absolute; inset-inline-start: 0; top: 0; width: 46px; height: 46px; border-radius: 50%;
+	background: var(--fh-green); color: #fff; font: 700 19px/46px var(--fh-font-head); text-align: center;
+}
+.fh-keys h4 { margin: 0 0 4px; font: 700 19px/1.4 var(--fh-font-head); color: var(--fh-green); }
+.fh-keys p { margin: 0; font-size: 16.5px; }
+.fh-cover { max-width: 460px; margin: 0 auto 30px; }
+
+@media only screen and (max-width: 767px) {
+	.fh-subhead { font-size: 22px; }
+	.fh-article h3 { font-size: 24px; }
+	.fh-poster figcaption { padding: 14px 14px 16px; }
+	.fh-poster h3 { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.fh-poster:hover, .fh-poster:focus-within { transform: none !important; }
+	.fh-poster:hover .fh-poster-img img, .fh-poster:focus-within .fh-poster-img img, .fh-photo .fh-poster-img:hover img { transform: none !important; }
+}
+
+/* ==========================================================================
+   Developments: masonry columns. Every image shows in full at its natural
+   ratio (no cropping, no fixed heights, no stretching); cards keep their own
+   natural height and pack into balanced columns, so there is no dead space.
+   ========================================================================== */
+.fh-masonry { column-count: 1; column-gap: 30px; }
+.fh-masonry-item {
+	display: inline-block; width: 100%; margin: 0 0 30px; vertical-align: top;
+	break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid;
+}
+.fh-masonry .fh-poster { margin: 0; width: 100%; display: block; height: auto; }
+.fh-masonry .fh-poster figcaption { display: flex; flex-direction: column; flex: none; }
+.fh-masonry .fh-ask { margin-top: 6px; padding-top: 0; }
+.fh-poster-img { background: #f3f1ea; }                           /* neutral, only visible while an image loads */
+.fh-poster-img img { width: 100%; height: auto; object-fit: contain; }
+@media only screen and (min-width: 576px) { .fh-masonry { column-count: 2; } }
+@media only screen and (min-width: 992px) { .fh-masonry { column-count: 3; } }
+
+/* Home teaser (one row of four): a simple top-aligned grid, each card keeps its natural height */
+.fh-masonry.four { column-count: auto; display: grid; grid-template-columns: 1fr; gap: 30px; align-items: start; }
+.fh-masonry.four .fh-masonry-item { margin: 0; }
+@media only screen and (min-width: 576px) { .fh-masonry.four { column-count: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media only screen and (min-width: 1230px) { .fh-masonry.four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

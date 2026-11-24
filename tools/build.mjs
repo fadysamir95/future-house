@@ -9,7 +9,7 @@
  * apart. The generated HTML is committed; the site itself stays plain static
  * HTML/CSS/JS and can be hosted anywhere.
  */
-import { writeFileSync, mkdirSync, existsSync, copyFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, copyFileSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -18,9 +18,9 @@ const SITE = 'https://futurehouseegy.com';
 const YEAR = new Date().getFullYear();
 const TODAY = new Date().toISOString().slice(0, 10);
 
-import { COMPANY, SOCIAL, PAGES, T, TEAM, TESTIMONIALS } from './copy.mjs';
+import { COMPANY, SOCIAL, PAGES, NAV, T, TEAM, TESTIMONIALS } from './copy.mjs';
+import { USED, byName } from './media.mjs';
 
-const ILLUSTRATIVE = { en: 'Illustrative image', ar: 'صورة توضيحية' };
 
 /* --------------------------------------------------------------- helpers */
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -102,7 +102,7 @@ function header(page, lang) {
 	const pre = lang === 'ar' ? '../' : '';
 	const other = OTHER[lang];
 	const switchHref = lang === 'en' ? `ar/${page}.html` : `../${page}.html`;
-	const nav = PAGES.map((p) =>
+	const nav = NAV.map((p) =>
 		`<li${p === page ? ' class="current"' : ''}><a href="${p}.html"${p === page ? ' aria-current="page"' : ''}>${esc(t.nav[p])}</a></li>`).join('\n\t\t\t\t\t\t\t\t\t');
 	return `<body>
 <a class="skip-link" href="#main">${esc(t.skip)}</a>
@@ -165,7 +165,7 @@ function footer(lang) {
 					<ul class="fh-footer-contact">
 						${row('fa-map-marker', t.addrLabel, `<a class="fh-ul" href="${COMPANY.mapsUrl}" target="_blank" rel="noopener noreferrer">${esc(COMPANY.address[lang])}</a>`)}
 						${row('fa-phone', t.callLabel, `<a class="fh-ul" href="tel:${COMPANY.phoneTel}">${ltr(COMPANY.phoneDisplay)}</a>`)}
-						${row('fa-whatsapp', t.waLabel, `<a class="fh-ul" href="${waLink(lang)}" target="_blank" rel="noopener noreferrer">${esc(f.waCta)}</a>`)}
+						${row('fa-whatsapp', t.waLabel, `<a class="fh-ul" href="${waLink(lang)}" target="_blank" rel="noopener noreferrer">${ltr(COMPANY.waDisplay)}</a>`)}
 						${row('fa-envelope-o', t.emailLabel, `<a class="fh-ul" href="mailto:${COMPANY.email}">${COMPANY.email}</a>`)}
 					</ul>
 				</div>
@@ -251,7 +251,7 @@ const serviceCard = (s, i, lang, reveal = false) => {
 	const pre = lang === 'ar' ? '../' : '';
 	return `<div class="service-block-two col-lg-4 col-md-6 col-sm-12 col-xs-12"${reveal ? rv(i % 3) : ''}>
 	<div class="inner-box">
-		<div class="image-layer" style="background-image:url(${pre}images/resource/service-block-two-bg.jpg)"></div>
+		<div class="image-layer" style="background-image:url(${pre}images/resource/service-block-two-bg.png)"></div>
 		<div class="icon-box"><span class="${s.icon}" aria-hidden="true"></span></div>
 		<h3>${esc(s.h)}</h3>
 		<div class="text">${esc(s.t)}</div>
@@ -301,6 +301,57 @@ const breadcrumb = (page, lang) => ({
 });
 
 /* ----------------------------------------------------------------- pages */
+/* ------------------------------------------------------------ media (social-media image library) */
+/* Optimised copies live in images/<folder>/<seo-name>-640|1080.webp (see tools/optimize-images.mjs);
+   alt text, captions and file names come from tools/media.mjs. */
+const MANIFEST = JSON.parse(readFileSync(join(ROOT, 'tools/media-manifest.json'), 'utf8'));
+const mpre = (lang) => (lang === 'ar' ? '../' : '');
+function mimg(name, lang, sizes = '(min-width: 992px) 380px, (min-width: 576px) 50vw, 100vw') {
+	const m = MANIFEST[name], u = byName(name);
+	if (!m || !u) throw new Error(`Unknown media: ${name}`);
+	const a = m.sizes[640], b = m.sizes[1080], base = `${mpre(lang)}images/${m.folder}/${name}`;
+	return `<img src="${base}-640.webp" srcset="${base}-640.webp ${a.w}w, ${base}-1080.webp ${b.w}w" sizes="${sizes}" width="${b.w}" height="${b.h}" alt="${esc(u.alt[lang])}" loading="lazy" decoding="async">`;
+}
+/* Poster text must stay readable, so every image links to its full-size version */
+const mlink = (name, lang, inner) => `<a class="fh-poster-img" href="${mpre(lang)}images/${MANIFEST[name].folder}/${name}-1080.webp" target="_blank" rel="noopener noreferrer" title="${esc(T[lang].pages2.viewFull)}">${inner}</a>`;
+const bdi = (s) => `<bdi>${esc(s)}</bdi>`;
+/* Accurate "sizes" for an image inside Bootstrap-3 columns (container 750 / 970 / 1170, 30px gutters),
+   so the browser picks the right file on high-DPI screens. Missing breakpoints inherit from the next smaller. */
+function sizesFor(cols) {
+	const n = (bp, fb) => { const m = cols.match(new RegExp(`col-${bp}-(\\d+)`)); return m ? +m[1] : fb; };
+	const xs = n('xs', 12), sm = n('sm', xs), md = n('md', sm), lg = n('lg', md);
+	const px = (container, c) => Math.round(container * c / 12 - 30);
+	return `(min-width: 1200px) ${px(1170, lg)}px, (min-width: 992px) ${px(970, md)}px, (min-width: 768px) ${px(750, sm)}px, calc(${(xs / 12 * 100).toFixed(2).replace(/\.?0+$/, '')}vw - 30px)`;
+}
+
+/* Masonry columns (see .fh-masonry in css/brand.css): 3 columns >= 992px, 2 >= 576px, 1 below.
+   The "four" variant (home teaser) is 4 columns >= 1230px, 2 >= 576px, 1 below. */
+const SIZES_MASONRY = '(min-width: 1230px) 370px, (min-width: 992px) calc((100vw - 90px) / 3), (min-width: 576px) calc((100vw - 60px) / 2), calc(100vw - 30px)';
+const SIZES_MASONRY_FOUR = '(min-width: 1230px) 270px, (min-width: 576px) calc((100vw - 60px) / 2), calc(100vw - 30px)';
+
+function projectCard(name, lang, i, sizes = SIZES_MASONRY) {
+	const u = byName(name), p = T[lang].pages2;
+	const meta = [u.developer ? `${esc(p.projects.by)} ${bdi(u.developer)}` : '', u.location ? esc(u.location[lang]) : ''].filter(Boolean).join(' · ');
+	const wa = `https://wa.me/${COMPANY.wa}?text=${encodeURIComponent(p.waAbout.replace('{name}', u.name))}`;
+	return `<div class="fh-masonry-item"${rv(i % 3)}><figure class="fh-poster">${mlink(name, lang, mimg(name, lang, sizes))}<figcaption><h3>${bdi(u.name)}</h3>${meta ? `<p class="meta">${meta}</p>` : ''}<a class="fh-ask" href="${wa}" target="_blank" rel="noopener noreferrer"><span class="fa fa-whatsapp" aria-hidden="true"></span> ${esc(p.projects.ask)}</a></figcaption></figure></div>`;
+}
+
+function personCard(name, lang, i, cols = 'col-lg-3 col-md-4 col-sm-6 col-xs-6') {
+	const u = byName(name), p = T[lang].pages2.team;
+	let line = '';
+	if (u.kind === 'promotion') line = lang === 'ar' ? u.titleAr : u.title;
+	else if (u.kind === 'rank') line = `${p.rank} ${u.rank}`;
+	else if (u.kind === 'bestemployee') line = `${p.bestH} · ${p.bestDate}`;
+	const heading = u.person ? `<h3>${bdi(u.person)}</h3>` : '';
+	return `<div class="${cols}"${rv(i % 4)}><figure class="fh-poster compact">${mlink(name, lang, mimg(name, lang, sizesFor(cols)))}${heading || line ? `<figcaption>${heading}${line ? `<p class="meta">${esc(line)}</p>` : ''}</figcaption>` : ''}</figure></div>`;
+}
+
+const DEV_ORDER = ['sarai-compound-new-cairo-madinet-masr', 'el-patio-oro-new-cairo-la-vista', 'creeks-mmg-lagoon-villas', 'waterfront-towers-night-view', 'alex-west-residential-complex', 'masaya-sidi-abdel-rahman-villa', 'muruj-residential-tower', 'seashore-water-side-apartments', 'rivers-ras-el-hekma-unit-types'];
+const PROMO_ORDER = USED.filter((u) => u.kind === 'promotion').map((u) => u.newName);
+const RANK_ORDER = ['top-performers-q2-2026-announcement', ...USED.filter((u) => u.kind === 'rank').map((u) => u.newName)];
+const CAMPAIGNS = USED.filter((u) => u.kind === 'campaign').map((u) => u.newName);
+const SLIDES = USED.filter((u) => u.kind === 'slide' && u.n > 0).sort((a, b) => a.n - b.n).map((u) => u.newName);
+
 function pageIndex(lang) {
 	const t = T[lang];
 	const pre = lang === 'ar' ? '../' : '';
@@ -376,6 +427,16 @@ ${areas}
 
 <section class="fh-section">
 	<div class="auto-container">
+		<div class="fh-section-head"${rv()}><div class="sub-title">${esc(t.pages2.home.sub)}</div><h2>${esc(t.pages2.home.h2)}</h2><p>${esc(t.pages2.home.p)}</p></div>
+		<div class="fh-masonry four">
+${DEV_ORDER.slice(0, 4).map((n, i) => projectCard(n, lang, i, SIZES_MASONRY_FOUR)).join('\n')}
+		</div>
+		<p class="text-center"${rv()}><a class="theme-btn btn-style-one" href="projects.html">${esc(t.pages2.home.all)}</a></p>
+	</div>
+</section>
+
+<section class="fh-section tint">
+	<div class="auto-container">
 		<div class="fh-section-head"${rv()}><div class="sub-title">${esc(t.channels.sub)}</div><h2>${esc(t.channels.h2)}</h2><p>${esc(t.channels.p)}</p></div>
 		<div class="row fh-row-equal">
 ${channels}
@@ -403,7 +464,7 @@ function pageAbout(lang) {
 				<p><a class="theme-btn btn-style-one" href="services.html">${esc(a.servicesLink)}</a></p>
 			</div>
 			<div class="col-md-5 col-sm-12">
-				<figure class="fh-figure" data-replaceable-image><img src="${lang === 'ar' ? '../' : ''}images/illustrative/about-living-room.jpg" width="1000" height="533" alt="" loading="lazy"><figcaption>${esc(ILLUSTRATIVE[lang])}</figcaption></figure>
+				<figure class="fh-photo">${mlink('future-house-team-anniversary-collage', lang, mimg('future-house-team-anniversary-collage', lang, sizesFor('col-md-5 col-sm-12')))}<figcaption>${esc(t.pages2.about.collageCap)}</figcaption></figure>
 				<div class="fh-card">
 					<h3>${esc(a.factsTitle)}</h3>
 					<ul style="list-style:none;padding:0;margin:0;line-height:2.1">${facts}</ul>
@@ -417,6 +478,22 @@ function pageAbout(lang) {
 	<div class="auto-container">
 		<div class="fh-section-head"><div class="sub-title">${esc(a.howSub)}</div><h2>${esc(a.howH2)}</h2></div>
 		<div class="row"><div class="col-md-8 col-md-offset-2 col-sm-12"><ol class="fh-steps">${steps}</ol></div></div>
+	</div>
+</section>
+
+<section class="fh-section">
+	<div class="auto-container">
+		<div class="fh-section-head"${rv()}><h2>${esc(t.pages2.about.journeyH)}</h2><p>${esc(t.pages2.about.journeyP)}</p></div>
+		<p class="text-center"${rv()}><a class="theme-btn btn-style-one" href="team.html">${esc(t.pages2.about.teamLink)}</a></p>
+	</div>
+</section>
+
+<section class="fh-section tint">
+	<div class="auto-container">
+		<div class="fh-section-head"${rv()}><h2>${esc(t.pages2.about.campH)}</h2><p>${esc(t.pages2.about.campP)}</p></div>
+		<div class="row fh-row-equal">
+${CAMPAIGNS.map((n, i) => `<div class="col-md-3 col-sm-6 col-xs-6"${rv(i % 4)}><figure class="fh-poster compact">${mlink(n, lang, mimg(n, lang, sizesFor('col-md-3 col-sm-6 col-xs-6')))}</figure></div>`).join('\n')}
+		</div>
 	</div>
 </section>
 
@@ -440,7 +517,7 @@ ${ctaBand(lang)}` + footer(lang);
 }
 
 function fill(str, lang) {
-	return str.replace('{phone}', COMPANY.phoneDisplay).replace('{email}', COMPANY.email).replace('{address}', COMPANY.address[lang]);
+	return str.replace('{phone}', COMPANY.phoneDisplay).replace('{wa}', COMPANY.waDisplay).replace('{email}', COMPANY.email).replace('{address}', COMPANY.address[lang]);
 }
 
 function pageFaqs(lang) {
@@ -475,7 +552,7 @@ function pageContact(lang) {
 				<ul class="fh-contact-list">
 					<li><span class="ico fa fa-map-marker" aria-hidden="true"></span><div><h3>${esc(t.addrLabel)}</h3><p>${esc(COMPANY.address[lang])}<br><a href="${COMPANY.mapsUrl}" target="_blank" rel="noopener noreferrer">${esc(c.openMap)}</a></p></div></li>
 					<li><span class="ico fa fa-phone" aria-hidden="true"></span><div><h3>${esc(t.callLabel)}</h3><p><a href="tel:${COMPANY.phoneTel}">${ltr(COMPANY.phoneDisplay)}</a></p></div></li>
-					<li><span class="ico fa fa-whatsapp" aria-hidden="true"></span><div><h3>${esc(t.waLabel)}</h3><p><a href="${waLink(lang)}" target="_blank" rel="noopener noreferrer">${ltr(COMPANY.phoneDisplay)}</a></p></div></li>
+					<li><span class="ico fa fa-whatsapp" aria-hidden="true"></span><div><h3>${esc(t.waLabel)}</h3><p><a href="${waLink(lang)}" target="_blank" rel="noopener noreferrer">${ltr(COMPANY.waDisplay)}</a></p></div></li>
 					<li><span class="ico fa fa-envelope-o" aria-hidden="true"></span><div><h3>${esc(t.emailLabel)}</h3><p><a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p></div></li>${COMPANY.hours ? `
 					<li><span class="ico fa fa-clock-o" aria-hidden="true"></span><div><h3>${lang === 'ar' ? 'ساعات العمل' : 'Opening hours'}</h3><p>${esc(COMPANY.hours[lang])}</p></div></li>` : ''}
 				</ul>
@@ -532,8 +609,101 @@ a:focus-visible{outline:3px solid #b8860b;outline-offset:2px}
 `;
 }
 
+function pageProjects(lang) {
+	const t = T[lang], p = t.pages2.projects;
+	const jsonld = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', url: urlOf('projects', lang), name: t.meta.projects.title, inLanguage: lang, about: { '@id': `${SITE}/#organization` } }, breadcrumb('projects', lang)] };
+	return head('projects', lang, { jsonld }) + header('projects', lang) + pageTitle('projects', lang, p.title) + `
+<section class="fh-section">
+	<div class="auto-container">
+		<div class="fh-section-head"${rv()}><div class="sub-title">${esc(p.sub)}</div><h2>${esc(p.h2)}</h2><p>${esc(p.p)}</p></div>
+		<div class="fh-masonry">
+${DEV_ORDER.map((n, i) => projectCard(n, lang, i)).join('\n')}
+		</div>
+		<p class="fh-note">${esc(p.note)}</p>
+	</div>
+</section>
+
+${ctaBand(lang, true)}` + footer(lang);
+}
+
+function pageTeam(lang) {
+	const t = T[lang], p = t.pages2.team;
+	const jsonld = { '@context': 'https://schema.org', '@graph': [{ '@type': 'WebPage', url: urlOf('team', lang), name: t.meta.team.title, inLanguage: lang, about: { '@id': `${SITE}/#organization` } }, breadcrumb('team', lang)] };
+	return head('team', lang, { jsonld }) + header('team', lang) + pageTitle('team', lang, p.title) + `
+<section class="fh-section">
+	<div class="auto-container">
+		<div class="fh-section-head"${rv()}><div class="sub-title">${esc(p.sub)}</div><h2>${esc(p.h2)}</h2><p>${esc(p.p)}</p></div>
+		<h3 class="fh-subhead"${rv()}>${esc(p.promoH)}</h3>
+		<p class="fh-subp">${esc(p.promoP)}</p>
+		<div class="row fh-row-equal">
+${PROMO_ORDER.map((n, i) => personCard(n, lang, i)).join('\n')}
+		</div>
+	</div>
+</section>
+
+<section class="fh-section tint">
+	<div class="auto-container">
+		<h3 class="fh-subhead"${rv()}>${esc(p.rankH)}</h3>
+		<p class="fh-subp">${esc(p.rankP)}</p>
+		<div class="row fh-row-equal">
+${RANK_ORDER.map((n, i) => personCard(n, lang, i, 'col-lg-4 col-md-4 col-sm-6 col-xs-6')).join('\n')}
+		</div>
+		<h3 class="fh-subhead" style="margin-top:56px"${rv()}>${esc(p.bestH)}</h3>
+		<div class="row fh-row-equal">
+${personCard('best-employee-august-2025-passant-elkady', lang, 0, 'col-lg-4 col-md-4 col-sm-6 col-xs-6')}
+		</div>
+	</div>
+</section>
+
+${ctaBand(lang, true)}` + footer(lang);
+}
+
+function pageInsights(lang) {
+	const t = T[lang], p = t.pages2.insights, a1 = p.a1, a2 = p.a2;
+	const jsonld = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', url: urlOf('insights', lang), name: t.meta.insights.title, inLanguage: lang, about: { '@id': `${SITE}/#organization` } }, breadcrumb('insights', lang)] };
+	const points = a1.points.map((x) => `<li><p>${esc(x)}</p></li>`).join('');
+	const keys = a2.keys.map(([h, x]) => `<li><h4>${esc(h)}</h4><p>${esc(x)}</p></li>`).join('');
+	const slides = SLIDES.map((n, i) => `<div class="col-lg-2 col-md-4 col-sm-4 col-xs-6"${rv(i % 3)}><figure class="fh-poster compact">${mlink(n, lang, mimg(n, lang, sizesFor('col-lg-2 col-md-4 col-sm-4 col-xs-6')))}</figure></div>`).join('\n');
+	return head('insights', lang, { jsonld }) + header('insights', lang) + pageTitle('insights', lang, p.title) + `
+<section class="fh-section">
+	<div class="auto-container">
+		<div class="fh-section-head"${rv()}><div class="sub-title">${esc(p.sub)}</div><h2>${esc(p.h2)}</h2><p>${esc(p.p)}</p></div>
+		<article class="fh-article" id="first-time-buyer-checklist"${rv()}>
+			<h3>${esc(a1.h)}</h3>
+			<p>${esc(a1.intro)}</p>
+			<ol class="fh-steps fh-steps-plain">${points}</ol>
+			<p class="fh-article-outro">${esc(a1.outro)}</p>
+		</article>
+	</div>
+</section>
+
+<section class="fh-section tint">
+	<div class="auto-container">
+		<div class="row">
+			<div class="col-md-7 col-sm-12">
+				<article class="fh-article" id="five-keys-property-investment"${rv()}>
+					<h3>${esc(a2.h)}</h3>
+					<p>${esc(a2.intro)}</p>
+					<ol class="fh-keys">${keys}</ol>
+					<p class="fh-note start">${esc(a2.note)}</p>
+				</article>
+			</div>
+			<div class="col-md-5 col-sm-12">
+				<figure class="fh-poster compact fh-cover"${rv(1)}>${mlink('five-keys-property-investment-cover', lang, mimg('five-keys-property-investment-cover', lang, '(min-width: 1200px) 458px, (min-width: 992px) 374px, (min-width: 768px) 460px, min(460px, calc(100vw - 30px))'))}</figure>
+			</div>
+		</div>
+		<h3 class="fh-subhead" style="margin-top:56px"${rv()}>${esc(a2.slides)}</h3>
+		<div class="row fh-row-equal">
+${slides}
+		</div>
+	</div>
+</section>
+
+${ctaBand(lang, true)}` + footer(lang);
+}
+
 /* ------------------------------------------------------------------ emit */
-const builders = { index: pageIndex, 'about-us': pageAbout, services: pageServices, faqs: pageFaqs, contact: pageContact };
+const builders = { index: pageIndex, 'about-us': pageAbout, services: pageServices, projects: pageProjects, team: pageTeam, insights: pageInsights, faqs: pageFaqs, contact: pageContact };
 function write(rel, content) {
 	const full = join(ROOT, rel);
 	mkdirSync(dirname(full), { recursive: true });

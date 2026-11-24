@@ -15,7 +15,8 @@ export const COMPANY = {
 	founded: '2019',
 	phoneDisplay: '+20 155 338 2233',
 	phoneTel: '+201553382233',
-	wa: '201553382233',
+	wa: '201044415553',          // WhatsApp (0 10 4441 5553), separate from the landline-style phone above
+	waDisplay: '+20 10 4441 5553',
 	email: 'info@futurehouseegy.com',
 	address: {
 		en: 'Roushdy, Abu Qir, Building 405 B, Alexandria, Egypt',
@@ -44,19 +45,33 @@ export const SOCIAL = [
 ].map((s) => ({ ...s, svg: iconPath(s.id) }));
 
 /* ------------------------------------------------------------------ copy */
-export const PAGES = ['index', 'about-us', 'services', 'faqs', 'contact'];
+export const PAGES = ['index', 'about-us', 'services', 'projects', 'team', 'insights', 'faqs', 'contact'];
+/* Pages shown in the header menu (the footer lists every page) */
+export const NAV = ['index', 'about-us', 'services', 'projects', 'insights', 'contact'];
 
 export const T = {
 	en: {
 		dir: 'ltr', locale: 'en_US', langName: 'English', switchLabel: 'العربية', switchTitle: 'العربية – Arabic version',
 		skip: 'Skip to main content',
-		nav: { index: 'Home', 'about-us': 'About Us', services: 'Services', faqs: 'FAQs', contact: 'Contact' },
+		nav: { index: 'Home', 'about-us': 'About Us', services: 'Services', projects: 'Developments', team: 'Our Team', insights: 'Insights', faqs: 'FAQs', contact: 'Contact' },
 		menuOpen: 'Open menu', menuClose: 'Close menu', mainNav: 'Main navigation', breadcrumb: 'Breadcrumb',
 		home: 'Home', logoAlt: 'Future House – Real Estate Marketing', toTop: 'Back to top',
 		followOn: (n) => `Future House on ${n}`,
 		callLabel: 'Phone', waLabel: 'WhatsApp', emailLabel: 'Email', addrLabel: 'Address',
 		waGreeting: 'Hello Future House, I would like to ask about a property.',
 		meta: {
+			projects: {
+				title: 'Featured Developments | Future House Real Estate Marketing',
+				desc: 'Developments marketed by Future House, including Sarai, El Patio Oro, Creeks, Alex West and more. Contact us for current offers.'
+			},
+			team: {
+				title: 'Our Team | Future House Real Estate Marketing & Brokerage',
+				desc: 'Meet the property advisors and consultants of Future House, plus the top performers and promotions announced on our official channels.'
+			},
+			insights: {
+				title: 'Real Estate Insights | Buying & Investment Tips | Future House',
+				desc: 'Practical guidance for property buyers and investors: a first-time buyer checklist and five keys to property investment success.'
+			},
 			index: {
 				title: 'Future House | Real Estate Marketing & Brokerage in Alexandria',
 				desc: 'Real estate marketing and brokerage in Alexandria and New Cairo. Future House helps you buy, sell and rent the right property for your needs and budget.'
@@ -149,7 +164,7 @@ export const T = {
 				['Can you help me sell my property?', 'Yes. We market properties for sale. Contact us with details about your property and we will discuss the next steps.'],
 				['Can you help me rent a property, or rent mine out?', 'Yes. We work with tenants looking for a place to rent and with owners who want to rent out their property.'],
 				['Where can I see your latest properties?', 'On our official channels: Instagram, Facebook, TikTok, YouTube, LinkedIn and Threads. The links are at the bottom of every page.'],
-				['How can I contact you?', 'Call or message us on WhatsApp at {phone}, email {email}, or visit our office at {address}.']
+				['How can I contact you?', 'Call us on {phone}, message us on WhatsApp at {wa}, email {email}, or visit our office at {address}.']
 			]
 		},
 		contact: {
@@ -160,6 +175,51 @@ export const T = {
 			f: { name: 'Full name', phone: 'Phone number', email: 'Email (optional)', interest: 'I am looking to', msg: 'Message', send: 'Send via WhatsApp', req: 'required' },
 			interests: [['', 'Select an option'], ['Buy a property', 'Buy a property'], ['Rent a property', 'Rent a property'], ['Sell my property', 'Sell my property'], ['Rent out my property', 'Rent out my property'], ['Something else', 'Something else']],
 			hint: 'When you submit, WhatsApp opens with your message ready to send. You can also email us at {email}.'
+		},
+		pages2: {
+			waAbout: 'Hello Future House, I would like to know more about {name}.',
+			viewFull: 'View full size',
+			projects: {
+				title: 'Featured Developments', sub: 'Developments we market', h2: 'Developments promoted by Future House',
+				p: 'Some of the developments we have promoted on our official channels. Each card shows the campaign poster as published.',
+				note: 'Campaign visuals as published on our social media channels. Offers, prices and payment terms shown in them may have changed, so please contact us for current details. Project names and developers are as printed on the posters.',
+				by: 'by', ask: 'Ask about this development'
+			},
+			team: {
+				title: 'Our Team', sub: 'The people behind Future House', h2: 'Our property advisors and consultants',
+				p: 'Announcements from our official channels celebrating the members of our sales team.',
+				promoH: 'Promotions', promoP: 'Team members promoted to new positions, as announced on our official channels.',
+				rankH: 'Top performers', rankP: 'Our top performers of the last quarter (Q2 2026), as announced on our official channels.',
+				bestH: 'Employee of the month', bestDate: 'August 2025', rank: 'Rank'
+			},
+			insights: {
+				title: 'Real Estate Insights', sub: 'Guides for buyers and investors', h2: 'Buying and investing, explained simply',
+				p: 'Practical points to keep in mind before you buy or invest. General information only, not financial advice.',
+				a1: {
+					h: 'First-time buyer checklist',
+					intro: 'A first property purchase involves many decisions, and a single small detail can matter more than you expect. Before you decide, keep these points in mind:',
+					points: ['Do not decide on price alone.', 'Review the contract details and the payment terms.', 'Check the location of the project and the services around it.', 'Compare your own needs with the unit you are choosing.', 'Do not move forward on any detail until you understand it.'],
+					outro: 'The right property is the one that fits your life, not just your wishlist: think about location, budget, lifestyle and future plans.'
+				},
+				a2: {
+					h: '5 keys to property investment success',
+					intro: 'Five points to consider when you are thinking about investing in property:',
+					keys: [
+						['Timing', 'When you invest in new homes, consider the timing. The early stages of a new development can offer the most room for growth, so it can pay to decide sooner rather than later.'],
+						['Location', 'Look for a growing area with strong demand. Check that the development has access to current or planned amenities and is close to the region\'s growth corridors.'],
+						['Quality', 'Land is valuable, but what is built on it matters. Look for qualified, experienced professionals, such as construction experts, designers and property managers, who can deliver a property that tenants and buyers will be proud of.'],
+						['Price and deal', 'Buying a new home or land can be a chance to enter a sought-after market at a competitive price. Compare prices with the median price in the area and act on deals with the right timing.'],
+						['Risk', 'No investment is without risk. Working with the right partner and team can help you reduce unnecessary risk. Look for developers and agents who are willing to work with you to lower it, and for examples of investors who have succeeded with them.']
+					],
+					slides: 'Slides from our educational post', note: 'General information only, not financial advice. Based on an educational post from our official channels.'
+				}
+			},
+			home: { sub: 'Developments we market', h2: 'Featured developments', p: 'Campaign posters for some of the developments we promote. Contact us for current offers.', all: 'View all developments' },
+			about: {
+				journeyH: 'Our people and our journey', journeyP: 'Future House started in 2019 with a vision and has grown into a team of property advisors and consultants. Meet some of them on our team page.',
+				teamLink: 'Meet our team', collageCap: 'From our company anniversary celebration',
+				campH: 'From our campaigns', campP: 'Artwork from Future House brand campaigns published on our social channels. These are creative visuals, not specific projects.'
+			}
 		},
 		formMsg: {
 			required: 'This field is required.',
@@ -173,20 +233,32 @@ export const T = {
 			greeting: 'Hello Future House,',
 			name: 'Name', phoneLbl: 'Phone', emailLbl: 'Email', interest: 'I am looking to', message: 'Message'
 		},
-		footer: { waCta: 'Chat on WhatsApp', tagline: 'Est. 2019 · Alexandria, Egypt', about: 'Real estate marketing and brokerage company established in 2019. We market, buy, sell and rent properties in Alexandria, New Cairo and beyond.', links: 'Quick links', follow: 'Follow us', rights: 'All rights reserved.' },
+		footer: { tagline: 'Est. 2019 · Alexandria, Egypt', about: 'Real estate marketing and brokerage company established in 2019. We market, buy, sell and rent properties in Alexandria, New Cairo and beyond.', links: 'Quick links', follow: 'Follow us', rights: 'All rights reserved.' },
 		notFound: { title: 'Page not found | Future House', h1: 'Page not found', p: 'The page you are looking for does not exist or has moved.', home: 'Go to the homepage' }
 	},
 
 	ar: {
 		dir: 'rtl', locale: 'ar_EG', langName: 'العربية', switchLabel: 'English', switchTitle: 'English version',
 		skip: 'انتقل إلى المحتوى الرئيسي',
-		nav: { index: 'الرئيسية', 'about-us': 'من نحن', services: 'خدماتنا', faqs: 'الأسئلة الشائعة', contact: 'تواصل معنا' },
+		nav: { index: 'الرئيسية', 'about-us': 'من نحن', services: 'خدماتنا', projects: 'المشروعات', team: 'فريقنا', insights: 'مقالات ونصائح', faqs: 'الأسئلة الشائعة', contact: 'تواصل معنا' },
 		menuOpen: 'فتح القائمة', menuClose: 'إغلاق القائمة', mainNav: 'القائمة الرئيسية', breadcrumb: 'مسار التنقل',
 		home: 'الرئيسية', logoAlt: 'فيوتشر هاوس – تسويق عقاري', toTop: 'العودة إلى الأعلى',
 		followOn: (n) => `فيوتشر هاوس على ${n}`,
 		callLabel: 'الهاتف', waLabel: 'واتساب', emailLabel: 'البريد الإلكتروني', addrLabel: 'العنوان',
 		waGreeting: 'مرحباً فيوتشر هاوس، أود الاستفسار عن عقار.',
 		meta: {
+			projects: {
+				title: 'المشروعات المميزة | فيوتشر هاوس للتسويق العقاري',
+				desc: 'مشروعات تسوّقها فيوتشر هاوس، منها سراي وإل باتيو أورو وكريكس وأليكس ويست وغيرها. تواصل معنا لمعرفة العروض الحالية.'
+			},
+			team: {
+				title: 'فريقنا | فيوتشر هاوس للتسويق والسمسرة العقارية',
+				desc: 'تعرّف على المستشارين والاستشاريين العقاريين في فيوتشر هاوس، وأفضل الأداءات والترقيات المعلنة عبر قنواتنا الرسمية.'
+			},
+			insights: {
+				title: 'مقالات ونصائح عقارية | الشراء والاستثمار | فيوتشر هاوس',
+				desc: 'إرشادات عملية للمشترين والمستثمرين: قائمة تحقق لمشتري العقار لأول مرة، وخمسة مفاتيح لنجاح الاستثمار العقاري.'
+			},
 			index: {
 				title: 'فيوتشر هاوس | تسويق وسمسرة عقارية في الإسكندرية',
 				desc: 'تسويق وسمسرة عقارية في الإسكندرية والقاهرة الجديدة. تساعدك فيوتشر هاوس على شراء العقار المناسب أو بيعه أو تأجيره بما يناسب احتياجاتك وميزانيتك.'
@@ -279,7 +351,7 @@ export const T = {
 				['هل يمكنكم مساعدتي في بيع عقاري؟', 'نعم. نسوّق العقارات المعروضة للبيع. تواصل معنا وزوّدنا بتفاصيل عقارك وسنناقش الخطوات التالية.'],
 				['هل يمكنكم مساعدتي في استئجار عقار أو تأجير عقاري؟', 'نعم. نعمل مع المستأجرين الباحثين عن مكان للإيجار ومع الملّاك الراغبين في تأجير عقاراتهم.'],
 				['أين يمكنني الاطلاع على أحدث العقارات؟', 'على قنواتنا الرسمية: إنستغرام وفيسبوك وتيك توك ويوتيوب ولينكدإن وثريدز. الروابط في أسفل كل صفحة.'],
-				['كيف يمكنني التواصل معكم؟', 'اتصل بنا أو راسلنا عبر واتساب على {phone}، أو عبر البريد {email}، أو زر مكتبنا في {address}.']
+				['كيف يمكنني التواصل معكم؟', 'اتصل بنا على {phone}، أو راسلنا عبر واتساب على {wa}، أو عبر البريد {email}، أو زر مكتبنا في {address}.']
 			]
 		},
 		contact: {
@@ -290,6 +362,51 @@ export const T = {
 			f: { name: 'الاسم الكامل', phone: 'رقم الهاتف', email: 'البريد الإلكتروني (اختياري)', interest: 'أبحث عن', msg: 'الرسالة', send: 'أرسل عبر واتساب', req: 'مطلوب' },
 			interests: [['', 'اختر من القائمة'], ['شراء عقار', 'شراء عقار'], ['استئجار عقار', 'استئجار عقار'], ['بيع عقاري', 'بيع عقاري'], ['تأجير عقاري', 'تأجير عقاري'], ['أمر آخر', 'أمر آخر']],
 			hint: 'عند الإرسال يُفتح واتساب برسالتك جاهزة للإرسال. يمكنك أيضاً مراسلتنا على {email}.'
+		},
+		pages2: {
+			waAbout: 'مرحباً فيوتشر هاوس، أود معرفة المزيد عن مشروع {name}.',
+			viewFull: 'عرض بالحجم الكامل',
+			projects: {
+				title: 'المشروعات المميزة', sub: 'مشروعات نسوّقها', h2: 'مشروعات تروّج لها فيوتشر هاوس',
+				p: 'بعض المشروعات التي روّجنا لها عبر قنواتنا الرسمية. تعرض كل بطاقة ملصق الحملة كما نُشر.',
+				note: 'مواد الحملات كما نُشرت على قنواتنا في وسائل التواصل. قد تكون العروض والأسعار وشروط السداد الظاهرة فيها قد تغيّرت، لذا يُرجى التواصل معنا لمعرفة التفاصيل الحالية. أسماء المشروعات والمطورين كما وردت على الملصقات.',
+				by: 'من', ask: 'استفسر عن هذا المشروع'
+			},
+			team: {
+				title: 'فريقنا', sub: 'من يقف خلف فيوتشر هاوس', h2: 'مستشارونا واستشاريونا العقاريون',
+				p: 'إعلانات من قنواتنا الرسمية تحتفي بأعضاء فريق المبيعات لدينا.',
+				promoH: 'الترقيات', promoP: 'أعضاء الفريق الذين تمت ترقيتهم إلى مناصب جديدة، كما أُعلن على قنواتنا الرسمية.',
+				rankH: 'أفضل الأداءات', rankP: 'أفضل أداءً لدينا في الربع الأخير (الربع الثاني من 2026)، كما أُعلن على قنواتنا الرسمية.',
+				bestH: 'موظف الشهر', bestDate: 'أغسطس 2025', rank: 'المركز'
+			},
+			insights: {
+				title: 'مقالات ونصائح عقارية', sub: 'أدلة للمشترين والمستثمرين', h2: 'الشراء والاستثمار ببساطة',
+				p: 'نقاط عملية يجب وضعها في الاعتبار قبل الشراء أو الاستثمار. معلومات عامة فقط وليست نصيحة مالية.',
+				a1: {
+					h: 'قائمة تحقق لمشتري العقار لأول مرة',
+					intro: 'تجربة شراء العقار الأولى مليئة بالقرارات، وقد تفرق تفصيلة واحدة صغيرة أكثر مما تتوقع. قبل أن تقرر، ضع هذه النقاط في اعتبارك:',
+					points: ['لا تختر على أساس السعر وحده.', 'راجع تفاصيل العقد وشروط السداد.', 'تأكد من موقع المشروع والخدمات المحيطة به.', 'قارن بين احتياجاتك والوحدة التي تختارها.', 'لا تمضِ في أي تفصيلة قبل أن تفهمها.'],
+					outro: 'العقار المناسب هو الذي يناسب حياتك، لا قائمة أمنياتك فقط: فكّر في الموقع والميزانية وأسلوب الحياة وخططك المستقبلية.'
+				},
+				a2: {
+					h: '5 مفاتيح لنجاح الاستثمار العقاري',
+					intro: 'خمس نقاط تستحق التفكير عند النظر في الاستثمار العقاري:',
+					keys: [
+						['التوقيت', 'عند الاستثمار في المنازل الجديدة، ضع التوقيت في اعتبارك. قد توفر المراحل الأولى من المشروع الجديد أكبر مساحة للنمو، لذا قد يكون القرار المبكر أفضل من المتأخر.'],
+						['الموقع', 'ابحث عن منطقة نامية يزداد عليها الطلب. تأكد من أن المشروع يتمتع بخدمات قائمة أو مخططة وقريب من محاور النمو في المنطقة.'],
+						['الجودة', 'الأرض ثمينة، لكن ما يُبنى عليها هو الأهم. اختر متخصصين مؤهلين وذوي خبرة، مثل خبراء الإنشاء والمصممين ومديري العقارات، قادرين على تقديم عقار يفخر به المستأجرون والمشترون.'],
+						['السعر والصفقة', 'قد يكون شراء منزل جديد أو أرض فرصة لدخول سوق مطلوب بسعر تنافسي. قارن الأسعار بمتوسط السعر في المنطقة، واغتنم الصفقات ذات التوقيت المناسب.'],
+						['المخاطر', 'لا يخلو أي استثمار من المخاطر. العمل مع الشريك والفريق المناسبين قد يساعدك على تقليل المخاطر غير الضرورية. ابحث عن مطورين ووسطاء مستعدين للعمل معك لتقليلها، وعن أمثلة لمستثمرين نجحوا معهم.']
+					],
+					slides: 'شرائح من منشورنا التعليمي', note: 'معلومات عامة فقط وليست نصيحة مالية. مستندة إلى منشور تعليمي من قنواتنا الرسمية.'
+				}
+			},
+			home: { sub: 'مشروعات نسوّقها', h2: 'مشروعات مميزة', p: 'ملصقات حملات لبعض المشروعات التي نروّج لها. تواصل معنا لمعرفة العروض الحالية.', all: 'عرض جميع المشروعات' },
+			about: {
+				journeyH: 'فريقنا ومسيرتنا', journeyP: 'بدأت فيوتشر هاوس عام 2019 برؤية، وتحوّلت إلى فريق من المستشارين والاستشاريين العقاريين. تعرّف على بعضهم في صفحة فريقنا.',
+				teamLink: 'تعرّف على فريقنا', collageCap: 'من احتفال الذكرى السنوية للشركة',
+				campH: 'من حملاتنا', campP: 'أعمال فنية من حملات فيوتشر هاوس المنشورة على قنواتنا في وسائل التواصل. هذه مواد إبداعية وليست مشروعات بعينها.'
+			}
 		},
 		formMsg: {
 			required: 'هذا الحقل مطلوب.',
@@ -303,7 +420,7 @@ export const T = {
 			greeting: 'مرحباً فيوتشر هاوس،',
 			name: 'الاسم', phoneLbl: 'الهاتف', emailLbl: 'البريد الإلكتروني', interest: 'أبحث عن', message: 'الرسالة'
 		},
-		footer: { waCta: 'تواصل عبر واتساب', tagline: 'تأسست عام 2019 · الإسكندرية، مصر', about: 'شركة تسويق وسمسرة عقارية تأسست عام 2019. نسوّق العقارات ونشتريها ونبيعها ونؤجّرها في الإسكندرية والقاهرة الجديدة وغيرهما.', links: 'روابط سريعة', follow: 'تابعنا', rights: 'جميع الحقوق محفوظة.' },
+		footer: { tagline: 'تأسست عام 2019 · الإسكندرية، مصر', about: 'شركة تسويق وسمسرة عقارية تأسست عام 2019. نسوّق العقارات ونشتريها ونبيعها ونؤجّرها في الإسكندرية والقاهرة الجديدة وغيرهما.', links: 'روابط سريعة', follow: 'تابعنا', rights: 'جميع الحقوق محفوظة.' },
 		notFound: { title: 'الصفحة غير موجودة | فيوتشر هاوس', h1: 'الصفحة غير موجودة', p: 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.', home: 'العودة إلى الصفحة الرئيسية' }
 	}
 };

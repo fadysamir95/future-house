@@ -26,6 +26,9 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `nav.index` | Home | الرئيسية | |
 | `nav.about-us` | About Us | من نحن | |
 | `nav.services` | Services | خدماتنا | |
+| `nav.projects` | Developments | المشروعات | |
+| `nav.team` | Our Team | فريقنا | |
+| `nav.insights` | Insights | مقالات ونصائح | |
 | `nav.faqs` | FAQs | الأسئلة الشائعة | |
 | `nav.contact` | Contact | تواصل معنا | |
 | `menuOpen` | Open menu | فتح القائمة | |
@@ -40,6 +43,12 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `emailLabel` | Email | البريد الإلكتروني | |
 | `addrLabel` | Address | العنوان | |
 | `waGreeting` | Hello Future House, I would like to ask about a property. | مرحباً فيوتشر هاوس، أود الاستفسار عن عقار. | |
+| `meta.projects.title` | Featured Developments | Future House Real Estate Marketing | المشروعات المميزة | فيوتشر هاوس للتسويق العقاري | |
+| `meta.projects.desc` | Developments marketed by Future House, including Sarai, El Patio Oro, Creeks, Alex West and more. Contact us for current offers. | مشروعات تسوّقها فيوتشر هاوس، منها سراي وإل باتيو أورو وكريكس وأليكس ويست وغيرها. تواصل معنا لمعرفة العروض الحالية. | |
+| `meta.team.title` | Our Team | Future House Real Estate Marketing & Brokerage | فريقنا | فيوتشر هاوس للتسويق والسمسرة العقارية | |
+| `meta.team.desc` | Meet the property advisors and consultants of Future House, plus the top performers and promotions announced on our official channels. | تعرّف على المستشارين والاستشاريين العقاريين في فيوتشر هاوس، وأفضل الأداءات والترقيات المعلنة عبر قنواتنا الرسمية. | |
+| `meta.insights.title` | Real Estate Insights | Buying & Investment Tips | Future House | مقالات ونصائح عقارية | الشراء والاستثمار | فيوتشر هاوس | |
+| `meta.insights.desc` | Practical guidance for property buyers and investors: a first-time buyer checklist and five keys to property investment success. | إرشادات عملية للمشترين والمستثمرين: قائمة تحقق لمشتري العقار لأول مرة، وخمسة مفاتيح لنجاح الاستثمار العقاري. | |
 | `meta.index.title` | Future House | Real Estate Marketing & Brokerage in Alexandria | فيوتشر هاوس | تسويق وسمسرة عقارية في الإسكندرية | |
 | `meta.index.desc` | Real estate marketing and brokerage in Alexandria and New Cairo. Future House helps you buy, sell and rent the right property for your needs and budget. | تسويق وسمسرة عقارية في الإسكندرية والقاهرة الجديدة. تساعدك فيوتشر هاوس على شراء العقار المناسب أو بيعه أو تأجيره بما يناسب احتياجاتك وميزانيتك. | |
 | `meta.about-us.title` | About Us | Future House Real Estate Marketing & Brokerage | من نحن | فيوتشر هاوس للتسويق والسمسرة العقارية | |
@@ -152,7 +161,7 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `faq.items[5][0]` | Where can I see your latest properties? | أين يمكنني الاطلاع على أحدث العقارات؟ | |
 | `faq.items[5][1]` | On our official channels: Instagram, Facebook, TikTok, YouTube, LinkedIn and Threads. The links are at the bottom of every page. | على قنواتنا الرسمية: إنستغرام وفيسبوك وتيك توك ويوتيوب ولينكدإن وثريدز. الروابط في أسفل كل صفحة. | |
 | `faq.items[6][0]` | How can I contact you? | كيف يمكنني التواصل معكم؟ | |
-| `faq.items[6][1]` | Call or message us on WhatsApp at {phone}, email {email}, or visit our office at {address}. | اتصل بنا أو راسلنا عبر واتساب على {phone}، أو عبر البريد {email}، أو زر مكتبنا في {address}. | |
+| `faq.items[6][1]` | Call us on {phone}, message us on WhatsApp at {wa}, email {email}, or visit our office at {address}. | اتصل بنا على {phone}، أو راسلنا عبر واتساب على {wa}، أو عبر البريد {email}، أو زر مكتبنا في {address}. | |
 | `contact.title` | Contact Us | تواصل معنا | |
 | `contact.sub` | Get in touch | يسعدنا تواصلك | |
 | `contact.h2` | Tell us what you are looking for | أخبرنا بما تبحث عنه | |
@@ -180,6 +189,62 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `contact.interests[5][0]` | Something else | أمر آخر | |
 | `contact.interests[5][1]` | Something else | أمر آخر | |
 | `contact.hint` | When you submit, WhatsApp opens with your message ready to send. You can also email us at {email}. | عند الإرسال يُفتح واتساب برسالتك جاهزة للإرسال. يمكنك أيضاً مراسلتنا على {email}. | |
+| `pages2.waAbout` | Hello Future House, I would like to know more about {name}. | مرحباً فيوتشر هاوس، أود معرفة المزيد عن مشروع {name}. | |
+| `pages2.viewFull` | View full size | عرض بالحجم الكامل | |
+| `pages2.projects.title` | Featured Developments | المشروعات المميزة | |
+| `pages2.projects.sub` | Developments we market | مشروعات نسوّقها | |
+| `pages2.projects.h2` | Developments promoted by Future House | مشروعات تروّج لها فيوتشر هاوس | |
+| `pages2.projects.p` | Some of the developments we have promoted on our official channels. Each card shows the campaign poster as published. | بعض المشروعات التي روّجنا لها عبر قنواتنا الرسمية. تعرض كل بطاقة ملصق الحملة كما نُشر. | |
+| `pages2.projects.note` | Campaign visuals as published on our social media channels. Offers, prices and payment terms shown in them may have changed, so please contact us for current details. Project names and developers are as printed on the posters. | مواد الحملات كما نُشرت على قنواتنا في وسائل التواصل. قد تكون العروض والأسعار وشروط السداد الظاهرة فيها قد تغيّرت، لذا يُرجى التواصل معنا لمعرفة التفاصيل الحالية. أسماء المشروعات والمطورين كما وردت على الملصقات. | |
+| `pages2.projects.by` | by | من | |
+| `pages2.projects.ask` | Ask about this development | استفسر عن هذا المشروع | |
+| `pages2.team.title` | Our Team | فريقنا | |
+| `pages2.team.sub` | The people behind Future House | من يقف خلف فيوتشر هاوس | |
+| `pages2.team.h2` | Our property advisors and consultants | مستشارونا واستشاريونا العقاريون | |
+| `pages2.team.p` | Announcements from our official channels celebrating the members of our sales team. | إعلانات من قنواتنا الرسمية تحتفي بأعضاء فريق المبيعات لدينا. | |
+| `pages2.team.promoH` | Promotions | الترقيات | |
+| `pages2.team.promoP` | Team members promoted to new positions, as announced on our official channels. | أعضاء الفريق الذين تمت ترقيتهم إلى مناصب جديدة، كما أُعلن على قنواتنا الرسمية. | |
+| `pages2.team.rankH` | Top performers | أفضل الأداءات | |
+| `pages2.team.rankP` | Our top performers of the last quarter (Q2 2026), as announced on our official channels. | أفضل أداءً لدينا في الربع الأخير (الربع الثاني من 2026)، كما أُعلن على قنواتنا الرسمية. | |
+| `pages2.team.bestH` | Employee of the month | موظف الشهر | |
+| `pages2.team.bestDate` | August 2025 | أغسطس 2025 | |
+| `pages2.team.rank` | Rank | المركز | |
+| `pages2.insights.title` | Real Estate Insights | مقالات ونصائح عقارية | |
+| `pages2.insights.sub` | Guides for buyers and investors | أدلة للمشترين والمستثمرين | |
+| `pages2.insights.h2` | Buying and investing, explained simply | الشراء والاستثمار ببساطة | |
+| `pages2.insights.p` | Practical points to keep in mind before you buy or invest. General information only, not financial advice. | نقاط عملية يجب وضعها في الاعتبار قبل الشراء أو الاستثمار. معلومات عامة فقط وليست نصيحة مالية. | |
+| `pages2.insights.a1.h` | First-time buyer checklist | قائمة تحقق لمشتري العقار لأول مرة | |
+| `pages2.insights.a1.intro` | A first property purchase involves many decisions, and a single small detail can matter more than you expect. Before you decide, keep these points in mind: | تجربة شراء العقار الأولى مليئة بالقرارات، وقد تفرق تفصيلة واحدة صغيرة أكثر مما تتوقع. قبل أن تقرر، ضع هذه النقاط في اعتبارك: | |
+| `pages2.insights.a1.points[0]` | Do not decide on price alone. | لا تختر على أساس السعر وحده. | |
+| `pages2.insights.a1.points[1]` | Review the contract details and the payment terms. | راجع تفاصيل العقد وشروط السداد. | |
+| `pages2.insights.a1.points[2]` | Check the location of the project and the services around it. | تأكد من موقع المشروع والخدمات المحيطة به. | |
+| `pages2.insights.a1.points[3]` | Compare your own needs with the unit you are choosing. | قارن بين احتياجاتك والوحدة التي تختارها. | |
+| `pages2.insights.a1.points[4]` | Do not move forward on any detail until you understand it. | لا تمضِ في أي تفصيلة قبل أن تفهمها. | |
+| `pages2.insights.a1.outro` | The right property is the one that fits your life, not just your wishlist: think about location, budget, lifestyle and future plans. | العقار المناسب هو الذي يناسب حياتك، لا قائمة أمنياتك فقط: فكّر في الموقع والميزانية وأسلوب الحياة وخططك المستقبلية. | |
+| `pages2.insights.a2.h` | 5 keys to property investment success | 5 مفاتيح لنجاح الاستثمار العقاري | |
+| `pages2.insights.a2.intro` | Five points to consider when you are thinking about investing in property: | خمس نقاط تستحق التفكير عند النظر في الاستثمار العقاري: | |
+| `pages2.insights.a2.keys[0][0]` | Timing | التوقيت | |
+| `pages2.insights.a2.keys[0][1]` | When you invest in new homes, consider the timing. The early stages of a new development can offer the most room for growth, so it can pay to decide sooner rather than later. | عند الاستثمار في المنازل الجديدة، ضع التوقيت في اعتبارك. قد توفر المراحل الأولى من المشروع الجديد أكبر مساحة للنمو، لذا قد يكون القرار المبكر أفضل من المتأخر. | |
+| `pages2.insights.a2.keys[1][0]` | Location | الموقع | |
+| `pages2.insights.a2.keys[1][1]` | Look for a growing area with strong demand. Check that the development has access to current or planned amenities and is close to the region's growth corridors. | ابحث عن منطقة نامية يزداد عليها الطلب. تأكد من أن المشروع يتمتع بخدمات قائمة أو مخططة وقريب من محاور النمو في المنطقة. | |
+| `pages2.insights.a2.keys[2][0]` | Quality | الجودة | |
+| `pages2.insights.a2.keys[2][1]` | Land is valuable, but what is built on it matters. Look for qualified, experienced professionals, such as construction experts, designers and property managers, who can deliver a property that tenants and buyers will be proud of. | الأرض ثمينة، لكن ما يُبنى عليها هو الأهم. اختر متخصصين مؤهلين وذوي خبرة، مثل خبراء الإنشاء والمصممين ومديري العقارات، قادرين على تقديم عقار يفخر به المستأجرون والمشترون. | |
+| `pages2.insights.a2.keys[3][0]` | Price and deal | السعر والصفقة | |
+| `pages2.insights.a2.keys[3][1]` | Buying a new home or land can be a chance to enter a sought-after market at a competitive price. Compare prices with the median price in the area and act on deals with the right timing. | قد يكون شراء منزل جديد أو أرض فرصة لدخول سوق مطلوب بسعر تنافسي. قارن الأسعار بمتوسط السعر في المنطقة، واغتنم الصفقات ذات التوقيت المناسب. | |
+| `pages2.insights.a2.keys[4][0]` | Risk | المخاطر | |
+| `pages2.insights.a2.keys[4][1]` | No investment is without risk. Working with the right partner and team can help you reduce unnecessary risk. Look for developers and agents who are willing to work with you to lower it, and for examples of investors who have succeeded with them. | لا يخلو أي استثمار من المخاطر. العمل مع الشريك والفريق المناسبين قد يساعدك على تقليل المخاطر غير الضرورية. ابحث عن مطورين ووسطاء مستعدين للعمل معك لتقليلها، وعن أمثلة لمستثمرين نجحوا معهم. | |
+| `pages2.insights.a2.slides` | Slides from our educational post | شرائح من منشورنا التعليمي | |
+| `pages2.insights.a2.note` | General information only, not financial advice. Based on an educational post from our official channels. | معلومات عامة فقط وليست نصيحة مالية. مستندة إلى منشور تعليمي من قنواتنا الرسمية. | |
+| `pages2.home.sub` | Developments we market | مشروعات نسوّقها | |
+| `pages2.home.h2` | Featured developments | مشروعات مميزة | |
+| `pages2.home.p` | Campaign posters for some of the developments we promote. Contact us for current offers. | ملصقات حملات لبعض المشروعات التي نروّج لها. تواصل معنا لمعرفة العروض الحالية. | |
+| `pages2.home.all` | View all developments | عرض جميع المشروعات | |
+| `pages2.about.journeyH` | Our people and our journey | فريقنا ومسيرتنا | |
+| `pages2.about.journeyP` | Future House started in 2019 with a vision and has grown into a team of property advisors and consultants. Meet some of them on our team page. | بدأت فيوتشر هاوس عام 2019 برؤية، وتحوّلت إلى فريق من المستشارين والاستشاريين العقاريين. تعرّف على بعضهم في صفحة فريقنا. | |
+| `pages2.about.teamLink` | Meet our team | تعرّف على فريقنا | |
+| `pages2.about.collageCap` | From our company anniversary celebration | من احتفال الذكرى السنوية للشركة | |
+| `pages2.about.campH` | From our campaigns | من حملاتنا | |
+| `pages2.about.campP` | Artwork from Future House brand campaigns published on our social channels. These are creative visuals, not specific projects. | أعمال فنية من حملات فيوتشر هاوس المنشورة على قنواتنا في وسائل التواصل. هذه مواد إبداعية وليست مشروعات بعينها. | |
 | `formMsg.required` | This field is required. | هذا الحقل مطلوب. | |
 | `formMsg.email` | Please enter a valid email address. | يرجى إدخال بريد إلكتروني صحيح. | |
 | `formMsg.phone` | Please enter a valid phone number. | يرجى إدخال رقم هاتف صحيح. | |
@@ -194,7 +259,6 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `formMsg.emailLbl` | Email | البريد الإلكتروني | |
 | `formMsg.interest` | I am looking to | أبحث عن | |
 | `formMsg.message` | Message | الرسالة | |
-| `footer.waCta` | Chat on WhatsApp | تواصل عبر واتساب | |
 | `footer.tagline` | Est. 2019 · Alexandria, Egypt | تأسست عام 2019 · الإسكندرية، مصر | |
 | `footer.about` | Real estate marketing and brokerage company established in 2019. We market, buy, sell and rent properties in Alexandria, New Cairo and beyond. | شركة تسويق وسمسرة عقارية تأسست عام 2019. نسوّق العقارات ونشتريها ونبيعها ونؤجّرها في الإسكندرية والقاهرة الجديدة وغيرهما. | |
 | `footer.links` | Quick links | روابط سريعة | |
@@ -204,3 +268,54 @@ Generated from `tools/copy.mjs`. Please proofread the **Arabic** column and send
 | `notFound.h1` | Page not found | الصفحة غير موجودة | |
 | `notFound.p` | The page you are looking for does not exist or has moved. | الصفحة التي تبحث عنها غير موجودة أو تم نقلها. | |
 | `notFound.home` | Go to the homepage | العودة إلى الصفحة الرئيسية | |
+
+## Image alt text and captions (tools/media.mjs)
+Names of people and third-party projects are kept in Latin script exactly as printed on the original posters.
+
+| File | English alt text | Arabic alt text | Reviewer notes |
+|---|---|---|---|
+| `sarai-compound-new-cairo-madinet-masr` | Sarai Compound in New Cairo by Madinet Masr, shown on a Future House campaign poster. | كمبوند سراي في القاهرة الجديدة من مدينة مصر، على ملصق حملة لشركة فيوتشر هاوس. | |
+| `el-patio-oro-new-cairo-la-vista` | El Patio Oro in New Cairo by La Vista Developments, shown on a Future House campaign poster. | مشروع إل باتيو أورو في القاهرة الجديدة من لافيستا للتطوير، على ملصق حملة لشركة فيوتشر هاوس. | |
+| `creeks-mmg-lagoon-villas` | Creeks by MMG, a lagoon-side residential development, shown on a Future House campaign poster. | مشروع كريكس من مجموعة MMG، مشروع سكني على بحيرة، على ملصق حملة لشركة فيوتشر هاوس. | |
+| `waterfront-towers-night-view` | Night view of the Waterfront residential towers, shown on a Future House campaign poster. | منظر ليلي لأبراج مشروع ووتر فرونت السكنية، على ملصق حملة لشركة فيوتشر هاوس. | |
+| `alex-west-residential-complex` | Alex West residential complex with its club house and amenities, shown on a Future House campaign poster. | مجمع أليكس ويست السكني ومرافقه ونادي السكان، على ملصق حملة لشركة فيوتشر هاوس. | |
+| `masaya-sidi-abdel-rahman-villa` | Masaya villa in Sidi Abdel Rahman, shown on a Future House campaign poster. | فيلا من مشروع مسايا في سيدي عبد الرحمن، على ملصق حملة لشركة فيوتشر هاوس. | |
+| `muruj-residential-tower` | Muruj residential tower, shown on a Future House campaign poster. | برج مروج السكني، على ملصق حملة لشركة فيوتشر هاوس. | |
+| `seashore-water-side-apartments` | Seashore Water Side waterfront apartments, shown on a Future House campaign poster. | شقق سي شور ووتر سايد المطلة على الواجهة المائية، على ملصق حملة لشركة فيوتشر هاوس. | |
+| `rivers-ras-el-hekma-unit-types` | Rivers in Ras El Hekma: sea-view units, lagoon units, stand-alone villas and town houses, on a Future House campaign poster. | مشروع ريفرز في رأس الحكمة: وحدات بإطلالة بحرية ووحدات على البحيرة وفيلات مستقلة وتاون هاوس، على ملصق حملة لشركة فيوتشر هاوس. | |
+| `future-house-team-anniversary-collage` | Collage of Future House team photos from the company anniversary, with the words "One Future House family". | مجموعة صور لفريق فيوتشر هاوس من احتفال الذكرى السنوية، مع عبارة «عائلة فيوتشر هاوس». | |
+| `brand-campaign-building-better-futures` | Future House brand campaign: "Building better futures", modern white villas in black and white. | حملة فيوتشر هاوس: «نبني مستقبلاً أفضل»، فيلات بيضاء حديثة بالأبيض والأسود. | |
+| `brand-campaign-more-than-a-property` | Future House brand campaign: "More than just a property", a glass tower in black and white. | حملة فيوتشر هاوس: «أكثر من مجرد عقار»، برج زجاجي بالأبيض والأسود. | |
+| `brand-campaign-built-on-trust` | Future House brand campaign: "Built on trust", a white doorway and staircase in black and white. | حملة فيوتشر هاوس: «مبنية على الثقة»، مدخل أبيض وسلم بالأبيض والأسود. | |
+| `brand-campaign-find-your-place` | Future House brand campaign: "Find your place", a modern building facade in black and white. | حملة فيوتشر هاوس: «اعثر على مكانك»، واجهة مبنى حديث بالأبيض والأسود. | |
+| `top-performers-q2-2026-announcement` | Congratulations to Future House top performers of the last quarter, Q2 2026, over a chessboard. | تهنئة لأفضل مستشاري فيوتشر هاوس أداءً في الربع الأخير، الربع الثاني من 2026، على رقعة شطرنج. | |
+| `top-performer-rank-1-asma-abdo` | Top performer announcement: rank 1, Asma Abdo. | إعلان أفضل أداء: المركز 1، Asma Abdo. | |
+| `top-performer-rank-2-ahmed-mahmoud` | Top performer announcement: rank 2, Ahmed Mahmoud. | إعلان أفضل أداء: المركز 2، Ahmed Mahmoud. | |
+| `top-performer-rank-3-neven-wahdan` | Top performer announcement: rank 3, Neven Wahdan. | إعلان أفضل أداء: المركز 3، Neven Wahdan. | |
+| `top-performer-rank-4-mohamed-essam` | Top performer announcement: rank 4, Mohamed Essam. | إعلان أفضل أداء: المركز 4، Mohamed Essam. | |
+| `top-performer-rank-5-zeinab-ali` | Top performer announcement: rank 5, Zeinab Ali. | إعلان أفضل أداء: المركز 5، Zeinab Ali. | |
+| `best-employee-august-2025-passant-elkady` | Best Employee of the Month, August 2025: Passant Elkady. | موظف الشهر المتميز، أغسطس 2025: Passant Elkady. | |
+| `promotion-hala-hossam-property-advisor` | Promotion announcement: Hala Hossam, new position Property Advisor. | إعلان ترقية: Hala Hossam، المسمى الوظيفي الجديد: مستشار عقاري. | |
+| `promotion-yasser-osama-property-advisor` | Promotion announcement: Yasser Osama, new position Property Advisor. | إعلان ترقية: Yasser Osama، المسمى الوظيفي الجديد: مستشار عقاري. | |
+| `promotion-zienb-ali-property-advisor` | Promotion announcement: Zienb Ali, new position Property Advisor. | إعلان ترقية: Zienb Ali، المسمى الوظيفي الجديد: مستشار عقاري. | |
+| `promotion-abdallah-tarek-property-consultant` | Promotion announcement: Abdallah Tarek, new position Property Consultant. | إعلان ترقية: Abdallah Tarek، المسمى الوظيفي الجديد: استشاري عقاري. | |
+| `promotion-habiba-osama-property-consultant` | Promotion announcement: Habiba Osama, new position Property Consultant. | إعلان ترقية: Habiba Osama، المسمى الوظيفي الجديد: استشاري عقاري. | |
+| `promotion-malak-abdalkader-property-consultant` | Promotion announcement: Malak Abdalkader, new position Property Consultant. | إعلان ترقية: Malak Abdalkader، المسمى الوظيفي الجديد: استشاري عقاري. | |
+| `promotion-passant-elkady-property-consultant` | Promotion announcement: Passant Elkady, new position Property Consultant. | إعلان ترقية: Passant Elkady، المسمى الوظيفي الجديد: استشاري عقاري. | |
+| `promotion-mahmoud-abdrabo-property-consultant` | Promotion announcement: Mahmoud Abdrabo, new position Property Consultant. | إعلان ترقية: Mahmoud Abdrabo، المسمى الوظيفي الجديد: استشاري عقاري. | |
+| `promotion-yahia-badawy-property-consultant` | Promotion announcement: Yahia Badawy, new position Property Consultant. | إعلان ترقية: Yahia Badawy، المسمى الوظيفي الجديد: استشاري عقاري. | |
+| `promotion-adham-el-kady-senior-property-consultant` | Promotion announcement: Adham El Kady, new position Senior Property Consultant. | إعلان ترقية: Adham El Kady، المسمى الوظيفي الجديد: استشاري عقاري أول. | |
+| `promotion-amr-adel-senior-property-consultant` | Promotion announcement: Amr Adel, new position Senior Property Consultant. | إعلان ترقية: Amr Adel، المسمى الوظيفي الجديد: استشاري عقاري أول. | |
+| `five-keys-property-investment-cover` | Cover slide: "5 keys to property investment success", a hand holding a model house. From a Future House educational post. | شريحة الغلاف: «5 مفاتيح لنجاح الاستثمار العقاري»، يد تحمل نموذج منزل. من منشور تعليمي لشركة فيوتشر هاوس. | |
+| `property-investment-key-1-timing` | Property investment tip 1: timing. Slide from a Future House educational post. | نصيحة الاستثمار العقاري 1: التوقيت. شريحة من منشور تعليمي لشركة فيوتشر هاوس. | |
+| `property-investment-key-2-location` | Property investment tip 2: location. Slide from a Future House educational post. | نصيحة الاستثمار العقاري 2: الموقع. شريحة من منشور تعليمي لشركة فيوتشر هاوس. | |
+| `property-investment-key-3-quality` | Property investment tip 3: quality. Slide from a Future House educational post. | نصيحة الاستثمار العقاري 3: الجودة. شريحة من منشور تعليمي لشركة فيوتشر هاوس. | |
+| `property-investment-key-4-price-and-deal` | Property investment tip 4: price and deal. Slide from a Future House educational post. | نصيحة الاستثمار العقاري 4: السعر والصفقة. شريحة من منشور تعليمي لشركة فيوتشر هاوس. | |
+| `property-investment-key-5-risk` | Property investment tip 5: risk. Slide from a Future House educational post. | نصيحة الاستثمار العقاري 5: المخاطر. شريحة من منشور تعليمي لشركة فيوتشر هاوس. | |
+
+### Job titles used in Arabic
+| English | Arabic |
+|---|---|
+| Property Advisor | مستشار عقاري |
+| Property Consultant | استشاري عقاري |
+| Senior Property Consultant | استشاري عقاري أول |

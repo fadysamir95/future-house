@@ -22,6 +22,27 @@
 		<xhtml:link rel="alternate" hreflang="x-default" href="https://futurehouseegy.com/services.html"/>
 	</url>
 	<url>
+		<loc>https://futurehouseegy.com/projects.html</loc>
+		<lastmod>2026-11-24</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://futurehouseegy.com/projects.html"/>
+		<xhtml:link rel="alternate" hreflang="ar" href="https://futurehouseegy.com/ar/projects.html"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://futurehouseegy.com/projects.html"/>
+	</url>
+	<url>
+		<loc>https://futurehouseegy.com/team.html</loc>
+		<lastmod>2026-11-24</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://futurehouseegy.com/team.html"/>
+		<xhtml:link rel="alternate" hreflang="ar" href="https://futurehouseegy.com/ar/team.html"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://futurehouseegy.com/team.html"/>
+	</url>
+	<url>
+		<loc>https://futurehouseegy.com/insights.html</loc>
+		<lastmod>2026-11-24</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://futurehouseegy.com/insights.html"/>
+		<xhtml:link rel="alternate" hreflang="ar" href="https://futurehouseegy.com/ar/insights.html"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://futurehouseegy.com/insights.html"/>
+	</url>
+	<url>
 		<loc>https://futurehouseegy.com/faqs.html</loc>
 		<lastmod>2026-11-24</lastmod>
 		<xhtml:link rel="alternate" hreflang="en" href="https://futurehouseegy.com/faqs.html"/>
@@ -55,6 +76,27 @@
 		<xhtml:link rel="alternate" hreflang="en" href="https://futurehouseegy.com/services.html"/>
 		<xhtml:link rel="alternate" hreflang="ar" href="https://futurehouseegy.com/ar/services.html"/>
 		<xhtml:link rel="alternate" hreflang="x-default" href="https://futurehouseegy.com/services.html"/>
+	</url>
+	<url>
+		<loc>https://futurehouseegy.com/ar/projects.html</loc>
+		<lastmod>2026-11-24</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://futurehouseegy.com/projects.html"/>
+		<xhtml:link rel="alternate" hreflang="ar" href="https://futurehouseegy.com/ar/projects.html"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://futurehouseegy.com/projects.html"/>
+	</url>
+	<url>
+		<loc>https://futurehouseegy.com/ar/team.html</loc>
+		<lastmod>2026-11-24</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://futurehouseegy.com/team.html"/>
+		<xhtml:link rel="alternate" hreflang="ar" href="https://futurehouseegy.com/ar/team.html"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://futurehouseegy.com/team.html"/>
+	</url>
+	<url>
+		<loc>https://futurehouseegy.com/ar/insights.html</loc>
+		<lastmod>2026-11-24</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://futurehouseegy.com/insights.html"/>
+		<xhtml:link rel="alternate" hreflang="ar" href="https://futurehouseegy.com/ar/insights.html"/>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://futurehouseegy.com/insights.html"/>
 	</url>
 	<url>
 		<loc>https://futurehouseegy.com/ar/faqs.html</loc>

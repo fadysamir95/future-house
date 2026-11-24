@@ -6,6 +6,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { T, COMPANY } from './copy.mjs';
+import { USED } from './media.mjs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const flat = (o, p = '', out = {}) => {
@@ -51,6 +52,10 @@ for (const k of Object.keys(en)) {
 	if (en[k] === ar[k] && !/[A-Za-z]{3,}/.test(String(en[k]))) continue;
 	md += `| \`${k}\` | ${cell(en[k])} | ${cell(ar[k])} | |\n`;
 }
+/* Image alt text and captions (tools/media.mjs) */
+md += '\n## Image alt text and captions (tools/media.mjs)\nNames of people and third-party projects are kept in Latin script exactly as printed on the original posters.\n\n| File | English alt text | Arabic alt text | Reviewer notes |\n|---|---|---|---|\n';
+for (const u of USED) md += `| \`${u.newName}\` | ${cell(u.alt.en)} | ${cell(u.alt.ar)} | |\n`;
+md += '\n### Job titles used in Arabic\n| English | Arabic |\n|---|---|\n| Property Advisor | مستشار عقاري |\n| Property Consultant | استشاري عقاري |\n| Senior Property Consultant | استشاري عقاري أول |\n';
 mkdirSync(join(ROOT, 'docs'), { recursive: true });
 writeFileSync(join(ROOT, 'docs/arabic-copy-review.md'), md);
 console.log('wrote docs/arabic-copy-review.md', Object.keys(en).length, 'strings');
