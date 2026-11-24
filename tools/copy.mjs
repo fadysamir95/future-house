@@ -69,11 +69,11 @@ export const T = {
 				desc: 'Meet the property advisors and consultants of Future House, plus the top performers and promotions announced on our official channels.'
 			},
 			insights: {
-				title: 'Real Estate Insights | Buying & Investment Tips | Future House',
+				title: 'Property Buying & Investment Tips | Future House',
 				desc: 'Practical guidance for property buyers and investors: a first-time buyer checklist and five keys to property investment success.'
 			},
 			index: {
-				title: 'Future House | Real Estate Marketing & Brokerage in Alexandria',
+				title: 'Future House | Real Estate Marketing & Brokerage, Alexandria',
 				desc: 'Real estate marketing and brokerage in Alexandria and New Cairo. Future House helps you buy, sell and rent the right property for your needs and budget.'
 			},
 			'about-us': {
